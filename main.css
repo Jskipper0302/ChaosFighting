@@ -1,0 +1,44 @@
+#control{
+    width: 1280px;
+}
+.left{
+    width: 240px;
+    height: 200px;
+    background-color: cornflowerblue;
+    float: left;
+    margin-right: 600px;
+}
+.right{
+    width: 240px;
+    height:200px;
+    background-color: fuchsia;
+    float: right;
+}
+
+div.center {
+    margin: auto;
+    width: 1280px;
+    display: block;
+    overflow: auto;
+}
+
+div.center1 {
+    margin: auto;
+    width: 600px;
+    display: block;
+    overflow: auto;
+}
+
+.form {
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.background {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3px;
+    border: 1px solid black;
+    background-image: url('./img/loading.gif');
+}
+

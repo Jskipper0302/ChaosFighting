@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GameOver</title>
+</head>
+<body>
+<center>
+    <h1>GAME OVER</h1><br>
+    <img id= "winner" src="selection/godzilla.gif" style="width:124px;height:186px;">
+    <h1 id = "winhint"></h1><br>
+    <button id="play" style="height:40px;width:150px"><a href="index.html">Play Again</a></button>
+    <script>
+        var winner = localStorage.getItem("characterNumber");
+        if (winner == 1){
+            document.getElementById("winner").setAttribute("src", "selection/godzilla.gif");
+        } else if (winner == 2){
+            document.getElementById("winner").setAttribute("src", "selection/goku.gif");
+        } else if (winner == 3){
+            document.getElementById("winner").setAttribute("src", "selection/itachi.gif");
+        }
+
+        var winNum = localStorage.getItem("playerNumber");
+        if (winNum == 1){
+            document.getElementById("winhint").innerHTML = "Player1 is the WINNER!!";
+        } else if (winNum == 2){
+            document.getElementById("winhint").innerHTML = "Player2 is the WINNER!!";
+        }
+    </script>
+</center>
+</body>
+</html>
