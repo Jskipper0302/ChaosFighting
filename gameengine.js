@@ -92,7 +92,12 @@ GameEngine.prototype.startInput = function () {
     console.log('Input started');
 }
 
-
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 GameEngine.prototype.start = function () {
     console.log("starting game");
