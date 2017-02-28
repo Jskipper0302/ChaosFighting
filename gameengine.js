@@ -51,7 +51,7 @@ GameEngine.prototype.startInput = function () {
         if (e.code === "KeyA") that.a = true;
         if (e.code === "KeyS") that.s = true;
         if (e.code === "KeyL") that.l = true;
-        if (this.ai != true){
+        if (that.ai != true){
             if (e.code === "ArrowUp") that.up = true;
             if (e.code === "ArrowLeft") that.left = true;
             if (e.code === "ArrowRight") that.right = true;
@@ -75,7 +75,7 @@ GameEngine.prototype.startInput = function () {
         if (e.code === "KeyA") that.a = false;
         if (e.code === "KeyS") that.s = false;
         if (e.code === "KeyL") that.l = false;
-        if (this.ai != true){
+        if (that.ai != true){
             if (e.code === "ArrowUp") that.up = false;
             if (e.code === "ArrowLeft") that.left = false;
             if (e.code === "ArrowRight") that.right = false;

@@ -1,9 +1,8 @@
 
 function Character(game, asset, playerNumber, characterNumber) {
-
+    this.ai = false;
     this.playerNumber = playerNumber;
     this.characterNumber = characterNumber;
-    // this.count = 0;
     this.goF = false;
     this.goB = false;
     this.jump = false;
@@ -21,7 +20,18 @@ function Character(game, asset, playerNumber, characterNumber) {
     this.ctx = game.ctx;
     this.hitSound = new Audio("./img/hit.mp3");
     this.sound = new Audio("./godzilla/superSound.mp3");
-    if (characterNumber == 1){
+    if (characterNumber == 0){
+        this.ai = true;
+        var a = Math.random();
+        if (a < 0.33){
+            this.characterNumber = 1;
+        } else if (a < 0.66){
+            this.characterNumber = 2;
+        } else {
+            this.characterNumber = 3;
+        }
+    }
+    if (this.characterNumber == 1){
         this.sound = new Audio("./godzilla/superSound.mp3");
         this.width = 65*3.8;
         this.attackRange = 14 * 3.8;
@@ -54,7 +64,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.x = 1000;
             this.y = 400;
         }
-    } else if (characterNumber == 2){
+    } else if (this.characterNumber == 2){
         this.sound = new Audio("./goku/superSound.mp3");
         this.width = 48*3;
         this.attackRange = 39 * 3;
@@ -87,7 +97,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.x = 1000;
             this.y = 400;
         }
-    } else if (characterNumber == 3){
+    } else if (this.characterNumber == 3){
         this.sound = new Audio("./itachi/superSound.mp3");
         this.width = 29*3.5;
         this.attackRange = 38*3.5 - 30;
@@ -175,10 +185,6 @@ Character.prototype.canAction = function(){
 };
 
 Character.prototype.canMove = function(){
-    return !(this.h || this.k || this.sup || this.g || this.lightB || this.middleB);
-};
-
-Character.prototype.beClose = function(){
     return !(this.h || this.k || this.sup || this.g || this.lightB || this.middleB);
 };
 
@@ -363,7 +369,6 @@ Character.prototype.update = function () {
     }
 
     if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange && Math.abs(this.y - this.opponent.y) < 150 && (this.lightB || this.middleB)){
-        console.log(this.opponent.hitSound.currentTime);
         if (this.lightB){
             if (this.opponent.g){
                 this.opponent.healthPoint -= 0.08;
@@ -442,6 +447,39 @@ Character.prototype.update = function () {
     } else {
         this.point3.x = 1280;
         this.point3.y = 720;
+    }
+
+
+    if (this.ai){
+        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange){
+            var a = Math.random();
+            if (a < 0.1) {
+                this.game.num2 = false;
+                this.game.num1 = true;
+            } else if (a >= 0.1 && a < 0.2) {
+                this.game.num1 = false;
+                this.game.num2 = true;
+            } else {
+                this.game.num1 = false;
+                this.game.num2 = false;
+            }
+
+        } else {
+            if (this.game.num1) {
+                this.game.num1 = false;
+            }
+            if (this.game.num2) {
+                this.game.num2 = false;
+            }
+            if (this.x > 200){
+                if (this.game.right) {
+                    this.game.right = false;
+                }
+                this.game.left = true;
+            } else {
+                this.game.left = false;
+            }
+        }
     }
 
     if (this.healthPoint < 0 || this.opponent.healthPoint < 0){
