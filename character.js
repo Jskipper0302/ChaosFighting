@@ -210,6 +210,7 @@ Character.prototype.update = function () {
             }
             if (this.game.i && this.power >= 100){
                 this.sup = true;
+                this.power -= 100;
             }
         }
         if (this.canMove()){
@@ -256,6 +257,7 @@ Character.prototype.update = function () {
             }
             if (this.game.num5 && this.power >= 100){
                 this.sup = true;
+                this.power -= 100;
             }
         }
         if (this.canMove()){
@@ -291,7 +293,6 @@ Character.prototype.update = function () {
     if (this.sup) {
         if (this.super.elapsedTime < 0.1){
             this.sound.play();
-            this.power -=100;
         }
         if (this.super.isDone() || this.h) {
             this.super.elapsedTime = 0;
