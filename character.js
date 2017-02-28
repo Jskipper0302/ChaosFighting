@@ -1,5 +1,6 @@
 
 function Character(game, asset, playerNumber, characterNumber) {
+    this.count = 0;
     this.ai = false;
     this.playerNumber = playerNumber;
     this.characterNumber = characterNumber;
@@ -33,7 +34,7 @@ function Character(game, asset, playerNumber, characterNumber) {
     }
     if (this.characterNumber == 1){
         this.sound = new Audio("./godzilla/superSound.mp3");
-        this.width = 65*3.8;
+        this.width = 65 * 3.8;
         this.attackRange = 14 * 3.8;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./godzilla/right/wait.png"), 70, 63, 1, 0.10, 1, true, 3.8);
@@ -66,7 +67,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         }
     } else if (this.characterNumber == 2){
         this.sound = new Audio("./goku/superSound.mp3");
-        this.width = 48*3;
+        this.width = 48 * 3;
         this.attackRange = 39 * 3;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./goku/right/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
@@ -99,8 +100,8 @@ function Character(game, asset, playerNumber, characterNumber) {
         }
     } else if (this.characterNumber == 3){
         this.sound = new Audio("./itachi/superSound.mp3");
-        this.width = 29*3.5;
-        this.attackRange = 38*3.5 - 30;
+        this.width = 29 * 3.5;
+        this.attackRange = 38 * 3.5 - 30;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./itachi/right/wait.png"), 29, 65, 4, 0.10, 4, true, 3.5);
             this.goForward = new Animation(asset.getAsset("./itachi/right/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
@@ -290,11 +291,12 @@ Character.prototype.update = function () {
     if (this.sup) {
         if (this.super.elapsedTime < 0.1){
             this.sound.play();
+            this.power -=100;
         }
-        if (this.super.isDone()) {
+        if (this.super.isDone() || this.h) {
             this.super.elapsedTime = 0;
             this.sup = false;
-            this.power -=100;
+
             this.flash.x = 2000;
             this.flash.y = 1000;
         }
@@ -449,35 +451,43 @@ Character.prototype.update = function () {
         this.point3.y = 720;
     }
 
-
     if (this.ai){
-        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange){
-            var a = Math.random();
-            if (a < 0.1) {
-                this.game.num2 = false;
-                this.game.num1 = true;
-            } else if (a >= 0.1 && a < 0.2) {
-                this.game.num1 = false;
-                this.game.num2 = true;
-            } else {
-                this.game.num1 = false;
-                this.game.num2 = false;
-            }
-
-        } else {
-            if (this.game.num1) {
-                this.game.num1 = false;
-            }
-            if (this.game.num2) {
-                this.game.num2 = false;
-            }
-            if (this.x > 200){
-                if (this.game.right) {
-                    this.game.right = false;
-                }
-                this.game.left = true;
-            } else {
+        this.game.num1 = false;
+        this.game.num2 = false;
+        this.game.num5 = false;
+        this.game.up = false;
+        if (this.count <= 15){
+            this.count++;
+            if (this.count == 15){
+                this.count = 0;
                 this.game.left = false;
+                this.game.right = false;
+                this.game.down = false;
+                this.game.num4 = false;
+                this.g = false;
+                this.random = Math.random();
+                console.log(this.random);
+                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange){
+                    if (this.random < 0.4){
+                        this.game.num1 = true;
+                    } else if (this.random < 0.8){
+                        this.game.num2 = true;
+                    } else if (this.random < 0.85){
+                        this.game.right = true;
+                    } else if (this.random < 0.9){
+                        this.game.num4 = true;
+                    } else if (this.random < 1){
+                        this.game.up = true;
+                    }
+                } else if (this.power >= 100 && Math.abs(this.x - this.opponent.x) < 600) {
+                    this.game.num5 = true;
+                } else {
+                    if (this.random < 0.7){
+                        this.game.left = true;
+                    } else if (this.power < 300){
+                        this.game.down = true;
+                    }
+                }
             }
         }
     }

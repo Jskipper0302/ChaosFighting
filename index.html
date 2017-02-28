@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-    <meta charset="UTF-8">
-    <title>TCSS491</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset = "UTF-8">
+    <title>Chaos Fighting</title>
+    <link rel = "stylesheet" type = "text/css" href = "main.css">
 </head>
 <body>
-<div class="center1">
+<div class = "center1">
     <h1>CHAOS FIGHTING</h1>
-    <p>GAME MODE: <button id="type" style="height:40px;width:150px">ONE PLAYER</button></p>
-    <img id="godzilla" src="selection/godzilla.gif" style="width:124px;height:186px;">
-    <img id="goku" src="selection/goku.gif" style="width:124px;height:186px;">
-    <img id= "itachi" src="selection/itachi.gif" style="width:124px;height:186px;">
+    <p>GAME MODE: <button id ="type" style = "height:40px; width:150px">ONE PLAYER</button></p>
+    <img id = "godzilla" src = "selection/godzilla.gif" style = "width:124px; height:186px;">
+    <img id = "goku" src = "selection/goku.gif" style = "width:124px; height:186px;">
+    <img id = "itachi" src = "selection/itachi.gif" style = "width:124px; height:186px;">
     <br>
-    <p class="form">GODZILLA</p>
-    <p class="form">GOKU</p>
-    <p class="form">ITACHI</p>
+    <p class = "form">GODZILLA</p>
+    <p class = "form">GOKU</p>
+    <p class = "form">ITACHI</p>
     <br>
 
-    <button id="select1" style="height:60px;width:200px">Player1 Select</button>
-    <button id="select2" style="height:60px;width:200px" disabled>Player2 Select</button>
-    <p id="hint1">Player1 has chosen GODZILLA</p>
-    <p id="hint2">Player2 has chosen a random character</p>
-    <button style="height:60px;width:200px"><a href="game.html" >Play Now</a></button>
+    <button id = "select1" style = "height:60px; width:200px">Player1 Select</button>
+    <button id = "select2" style = "height:60px; width:200px" disabled>Player2 Select</button>
+    <p id = "hint1">Player1 has chosen GODZILLA</p>
+    <p id = "hint2">Player2 has chosen a random character</p>
+    <button style = "height:60px; width:200px"><a href = "game.html" >Play Now</a></button>
 </div>
 <script>
     localStorage.setItem("selection1", "1");
@@ -72,6 +72,7 @@
             document.getElementById("type").innerHTML = "TWO PLAYER";
             document.getElementById("select2").removeAttribute("disabled");
             document.getElementById("hint2").innerHTML = "Player2 has chosen ITACHI";
+            localStorage.setItem("selection2", "3");
         } else {
             document.getElementById("type").innerHTML = "ONE PLAYER";
             document.getElementById("select2").setAttribute("disabled", "disabled");
