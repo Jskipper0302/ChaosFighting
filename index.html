@@ -22,9 +22,12 @@
     <button id = "select2" style = "height:60px; width:200px" disabled>Player2 Select</button>
     <p id = "hint1">Player1 has chosen GODZILLA</p>
     <p id = "hint2">Player2 has chosen a random character</p>
-    <button style = "height:60px; width:200px"><a href = "game.html" >Play Now</a></button>
+    <button style = "height:60px; width:200px" onclick = "startGame()">Play Now</a></button>
 </div>
 <script>
+    function startGame(){
+        window.location.href = 'game.html';
+    }
     localStorage.setItem("selection1", "1");
     localStorage.setItem("selection2", "3");
     var selected = 0;

@@ -456,36 +456,41 @@ Character.prototype.update = function () {
         this.game.num2 = false;
         this.game.num5 = false;
         this.game.up = false;
-        if (this.count <= 15){
-            this.count++;
-            if (this.count == 15){
-                this.count = 0;
-                this.game.left = false;
-                this.game.right = false;
-                this.game.down = false;
-                this.game.num4 = false;
-                this.g = false;
-                this.random = Math.random();
-                console.log(this.random);
-                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange){
-                    if (this.random < 0.4){
-                        this.game.num1 = true;
-                    } else if (this.random < 0.8){
-                        this.game.num2 = true;
-                    } else if (this.random < 0.85){
-                        this.game.right = true;
-                    } else if (this.random < 0.9){
-                        this.game.num4 = true;
-                    } else if (this.random < 1){
-                        this.game.up = true;
-                    }
-                } else if (this.power >= 100 && Math.abs(this.x - this.opponent.x) < 600) {
-                    this.game.num5 = true;
-                } else {
-                    if (this.random < 0.7){
-                        this.game.left = true;
-                    } else if (this.power < 300){
-                        this.game.down = true;
+
+        if (this.opponent.sup && this.canAction()){
+            this.g = true;
+        } else {
+            this.g = false;
+            if (this.count <= 15){
+                this.count++;
+                if (this.count == 15){
+                    this.count = 0;
+                    this.game.left = false;
+                    this.game.right = false;
+                    this.game.down = false;
+                    this.game.num4 = false;
+                    this.random = Math.random();
+                    console.log(this.random);
+                    if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange){
+                        if (this.random < 0.4){
+                            this.game.num1 = true;
+                        } else if (this.random < 0.8){
+                            this.game.num2 = true;
+                        } else if (this.random < 0.85){
+                            this.game.right = true;
+                        } else if (this.random < 0.9){
+                            this.game.num4 = true;
+                        } else if (this.random < 1){
+                            this.game.up = true;
+                        }
+                    } else if (this.power >= 100 && Math.abs(this.x - this.opponent.x) < 600) {
+                        this.game.num5 = true;
+                    } else {
+                        if (this.random < 0.7){
+                            this.game.left = true;
+                        } else if (this.power < 300){
+                            this.game.down = true;
+                        }
                     }
                 }
             }
