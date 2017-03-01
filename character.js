@@ -155,7 +155,7 @@ function Character(game, asset, playerNumber, characterNumber) {
                 this.bg = new Audio("./assets/bgm3.mp3");
                 break;
             default:
-                break;
+                this.bg = new Audio("./assets/bgm1.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
