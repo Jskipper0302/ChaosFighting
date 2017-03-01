@@ -91,27 +91,27 @@ Bar.prototype.update = function () {
     }
 };
 
-// function StartButton(game, spritesheet) {
-//     this.x = 1280/2 - 452/2;
-//     this.y = 720/2 - 200/2;
-//     this.spritesheet = spritesheet;
-//     this.game = game;
-//     this.ctx = game.ctx;
-// };
-//
-// StartButton.prototype.draw = function () {
-//     this.ctx.drawImage(this.spritesheet, this.x, this.y);
-// };
-//
-// StartButton.prototype.update = function () {
-//     if (localStorage.getItem("game") == 0){
-//         this.x = 1280/2 - 452/2;
-//         this.y = 720/2 - 200/2;
-//     }else {
-//         this.x = 1280;
-//         this.y = 720;
-//     }
-// };
+function StartButton(game, spritesheet) {
+    this.x = 1280/2 - 452/2;
+    this.y = 720/2 - 200/2;
+    this.spritesheet = spritesheet;
+    this.game = game;
+    this.ctx = game.ctx;
+};
+
+StartButton.prototype.draw = function () {
+    this.ctx.drawImage(this.spritesheet, this.x, this.y);
+};
+
+StartButton.prototype.update = function () {
+    if (localStorage.getItem("game") == 0){
+        this.x = 1280/2 - 452/2;
+        this.y = 720/2 - 200/2;
+    }else {
+        this.x = 1280;
+        this.y = 720;
+    }
+};
 
 AM.queueDownload("./godzilla/right/jumpUp.png");
 AM.queueDownload("./godzilla/right/heavyBoxing.png");
@@ -215,7 +215,7 @@ AM.downloadAll(function () {
     gameEngine.addEntity(playerOne);
     gameEngine.addEntity(playerTwo);
     gameEngine.addEntity(new Bar(gameEngine, AM.getAsset("./assets/bar.gif")));
-    // gameEngine.addEntity(new StartButton(gameEngine, AM.getAsset("./assets/start.png")));
+    gameEngine.addEntity(new StartButton(gameEngine, AM.getAsset("./assets/start.png")));
 
     console.log("All Done!");
 });

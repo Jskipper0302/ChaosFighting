@@ -154,7 +154,6 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.bg.loop = true;
         this.bg.play();
     }
-
 }
 
 Character.prototype.setOpponent = function(opponent) {
