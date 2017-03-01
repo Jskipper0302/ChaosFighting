@@ -144,22 +144,17 @@ function Character(game, asset, playerNumber, characterNumber) {
     this.sound.loop = false;
     this.hitSound.loop = false;
     if (this.playerNumber == 2){
-        switch(this.characterNumber) {
-            case 1:
-                this.bg = new Audio("./assets/bgm1.mp3");
-                break;
-            case 2:
-                this.bg = new Audio("./assets/bgm2.mp3");
-                break;
-            case 3:
-                this.bg = new Audio("./assets/bgm3.mp3");
-                break;
-            default:
-                this.bg = new Audio("./assets/bgm1.mp3");
+        if (this.characterNumber == 1){
+            this.bg = new Audio("./assets/bgm1.mp3");
+        } else if (this.characterNumber == 2){
+            this.bg = new Audio("./assets/bgm2.mp3");
+        } else if (this.characterNumber == 3){
+            this.bg = new Audio("./assets/bgm3.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
     }
+
 }
 
 Character.prototype.setOpponent = function(opponent) {
