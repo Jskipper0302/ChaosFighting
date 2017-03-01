@@ -41,12 +41,19 @@ Animation.prototype.isDone = function () {
 }
 
 // no inheritance
-function Background(game, spritesheet) {
+function Background(game) {
     this.x = 0;
     this.y = 0;
-    this.spritesheet = spritesheet;
     this.game = game;
     this.ctx = game.ctx;
+    var a = Math.random();
+    if (a < 0.33){
+        this.spritesheet = AM.getAsset("./assets/bg1.jpg");
+    } else if (a < 0.66){
+        this.spritesheet = AM.getAsset("./assets/bg2.jpg");
+    } else {
+        this.spritesheet = AM.getAsset("./assets/bg3.jpg");
+    }
 };
 
 Background.prototype.draw = function () {
@@ -74,15 +81,38 @@ Bar.prototype.draw = function () {
 };
 
 Bar.prototype.update = function () {
-        //test health Point
-        if (this.game.num9){
-            playerOne.healthPoint--;
-            playerTwo.healthPoint--;
-        } else if (this.game.num8){
-            playerOne.healthPoint++;
-            playerTwo.healthPoint++;
-        }
+    //test health Point
+    if (this.game.num9){
+        playerOne.healthPoint--;
+        playerTwo.healthPoint--;
+    } else if (this.game.num8){
+        playerOne.healthPoint++;
+        playerTwo.healthPoint++;
+    }
 };
+
+// function StartButton(game, spritesheet) {
+//     this.x = 1280/2 - 452/2;
+//     this.y = 720/2 - 200/2;
+//     this.spritesheet = spritesheet;
+//     this.game = game;
+//     this.ctx = game.ctx;
+// };
+//
+// StartButton.prototype.draw = function () {
+//     this.ctx.drawImage(this.spritesheet, this.x, this.y);
+// };
+//
+// StartButton.prototype.update = function () {
+//     if (localStorage.getItem("game") == 0){
+//         this.x = 1280/2 - 452/2;
+//         this.y = 720/2 - 200/2;
+//     }else {
+//         this.x = 1280;
+//         this.y = 720;
+//     }
+// };
+
 AM.queueDownload("./godzilla/right/jumpUp.png");
 AM.queueDownload("./godzilla/right/heavyBoxing.png");
 AM.queueDownload("./godzilla/right/lightBoxing.png");
@@ -156,10 +186,16 @@ AM.queueDownload("./itachi/right/ki.png");
 AM.queueDownload("./itachi/right/super.png");
 AM.queueDownload("./itachi/right/superFlash.png");
 
-AM.queueDownload("./img/StageChina.jpg");
-AM.queueDownload("./img/bar.gif");
-AM.queueDownload("./img/point.png");
-AM.queueDownload("./img/hit.mp3");
+AM.queueDownload("./assets/bg1.jpg");
+AM.queueDownload("./assets/bg2.jpg");
+AM.queueDownload("./assets/bg3.jpg");
+AM.queueDownload("./assets/bar.gif");
+AM.queueDownload("./assets/point.png");
+AM.queueDownload("./assets/start.png");
+AM.queueDownload("./assets/hit.mp3");
+AM.queueDownload("./assets/bgm1.mp3");
+AM.queueDownload("./assets/bgm2.mp3");
+AM.queueDownload("./assets/bgm3.mp3");
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
@@ -168,7 +204,7 @@ AM.downloadAll(function () {
     gameEngine.init(ctx);
     gameEngine.start();
 
-    gameEngine.addEntity(new Background(gameEngine, AM.getAsset("./img/StageChina.jpg")));
+    gameEngine.addEntity(new Background(gameEngine));
     playerOne = new Character(gameEngine, AM, 1, localStorage.getItem("selection1"));
     playerTwo = new Character(gameEngine, AM, 2, localStorage.getItem("selection2"));
     playerOne.setOpponent(playerTwo);
@@ -178,7 +214,8 @@ AM.downloadAll(function () {
     }
     gameEngine.addEntity(playerOne);
     gameEngine.addEntity(playerTwo);
-    gameEngine.addEntity(new Bar(gameEngine, AM.getAsset("./img/bar.gif")));
+    gameEngine.addEntity(new Bar(gameEngine, AM.getAsset("./assets/bar.gif")));
+    // gameEngine.addEntity(new StartButton(gameEngine, AM.getAsset("./assets/start.png")));
 
     console.log("All Done!");
 });

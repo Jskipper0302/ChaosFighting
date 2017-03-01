@@ -9,9 +9,9 @@
 <div class = "center1">
     <h1>CHAOS FIGHTING</h1>
     <p>GAME MODE: <button id ="type" style = "height:40px; width:150px">ONE PLAYER</button></p>
-    <img id = "godzilla" src = "selection/godzilla.gif" style = "width:124px; height:186px;">
-    <img id = "goku" src = "selection/goku.gif" style = "width:124px; height:186px;">
-    <img id = "itachi" src = "selection/itachi.gif" style = "width:124px; height:186px;">
+    <img id = "godzilla" src = "assets/godzilla.gif" style = "width:124px; height:186px;">
+    <img id = "goku" src = "assets/goku.gif" style = "width:124px; height:186px;">
+    <img id = "itachi" src = "assets/itachi.gif" style = "width:124px; height:186px;">
     <br>
     <p class = "form">GODZILLA</p>
     <p class = "form">GOKU</p>
@@ -28,6 +28,10 @@
     function startGame(){
         window.location.href = 'game.html';
     }
+    localStorage.setItem("game", 1);
+    var music = new Audio("./assets/startmusic.mp3");
+    music.loop = true;
+    music.play();
     localStorage.setItem("selection1", "1");
     localStorage.setItem("selection2", "3");
     var selected = 0;

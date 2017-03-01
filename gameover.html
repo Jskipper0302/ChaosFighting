@@ -7,20 +7,22 @@
 <body>
 <center>
     <h1>GAME OVER</h1><br>
-    <img id = "winner" src = "selection/godzilla.gif" style = "width:124px; height:186px;">
+    <img id = "winner" src = "assets/godzilla.gif" style = "width:124px; height:186px;">
     <h1 id = "winhint"></h1><br>
     <button id = "play" style = "height:40px; width:150px" onclick = "playAgain()">Play Again</a></button>
     <script>
         function playAgain() {
             window.location.href = 'index.html';
         }
+        var music = new Audio("./assets/win.mp3");
+        music.play();
         var winner = localStorage.getItem("characterNumber");
         if (winner == 1){
-            document.getElementById("winner").setAttribute("src", "selection/godzilla.gif");
+            document.getElementById("winner").setAttribute("src", "assets/godzilla.gif");
         } else if (winner == 2){
-            document.getElementById("winner").setAttribute("src", "selection/goku.gif");
+            document.getElementById("winner").setAttribute("src", "assets/goku.gif");
         } else if (winner == 3){
-            document.getElementById("winner").setAttribute("src", "selection/itachi.gif");
+            document.getElementById("winner").setAttribute("src", "assets/itachi.gif");
         }
 
         var winNum = localStorage.getItem("playerNumber");

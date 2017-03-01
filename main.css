@@ -39,6 +39,6 @@ div.center1 {
     width: 100%;
     padding: 3px;
     border: 1px solid black;
-    background-image: url('./img/loading.gif');
+    background-image: url('assets/loading.gif');
 }
 
