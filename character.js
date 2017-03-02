@@ -460,7 +460,7 @@ Character.prototype.update = function () {
                         this.power += 1;
                     }
                 }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 5 - this.opponent.x - this.opponent.width)
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 4.5 - this.opponent.x - this.opponent.width)
                 < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
                 if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                     if (this.opponent.g){
