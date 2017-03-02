@@ -80,16 +80,16 @@ Bar.prototype.draw = function () {
         this.spritesheet.width - (200 - playerOne.healthPoint - playerTwo.healthPoint) * 5.7, this.spritesheet.height);
 };
 
-Bar.prototype.update = function () {
-    //test health Point
-    if (this.game.num9){
-        playerOne.healthPoint--;
-        playerTwo.healthPoint--;
-    } else if (this.game.num8){
-        playerOne.healthPoint++;
-        playerTwo.healthPoint++;
-    }
-};
+// Bar.prototype.update = function () {
+//     test health Point
+//     if (this.game.num9){
+//         playerOne.healthPoint--;
+//         playerTwo.healthPoint--;
+//     } else if (this.game.num8){
+//         playerOne.healthPoint++;
+//         playerTwo.healthPoint++;
+//     }
+// };
 
 function StartButton(game, spritesheet) {
     this.x = 1280/2 - 452/2;

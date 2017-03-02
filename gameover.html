@@ -15,7 +15,9 @@
             window.location.href = 'index.html';
         }
         var music = new Audio("./assets/win.mp3");
-        music.play();
+        if(localStorage.getItem("music") == 1){
+            music.play();
+        }
         var winner = localStorage.getItem("characterNumber");
         if (winner == 1){
             document.getElementById("winner").setAttribute("src", "assets/godzilla.gif");

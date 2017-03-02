@@ -36,9 +36,11 @@ function Character(game, asset, playerNumber, characterNumber) {
     }
     if (this.characterNumber == 1){
         this.sound = new Audio("./godzilla/superSound.mp3");
-        this.width = 65 * 3.8;
-        this.attackRangeL = 12 * 3.8;
-        this.attackRangeM = 6 * 3.8;
+        this.width = 65 * 4;
+        this.attackRangeL = 16 * 3.8;
+        this.attackRangeM = 7 * 3.8;
+        this.superAttack = 0.4;
+        this.guardScale = 2;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./godzilla/right/wait.png"), 70, 63, 1, 0.10, 1, true, 3.8);
             this.goForward = new Animation(asset.getAsset("./godzilla/right/goForward.png"), 72, 63, 3, 0.25, 3, true, 3.8);
@@ -73,6 +75,8 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.width = 48 * 3;
         this.attackRangeL = 38 * 3;
         this.attackRangeM = 25 * 3;
+        this.superAttack = 0.28;
+        this.guardScale = 2;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./goku/right/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
             this.goForward = new Animation(asset.getAsset("./goku/right/goForward.png"), 76, 79, 2, 0.25, 2, true, 3.2);
@@ -107,6 +111,8 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.width = 29 * 3.5;
         this.attackRangeL = 38 * 3.5;
         this.attackRangeM = 30 * 3.5 ;
+        this.superAttack = 0.32;
+        this.guardScale = 2;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./itachi/right/wait.png"), 29, 65, 4, 0.10, 4, true, 3.5);
             this.goForward = new Animation(asset.getAsset("./itachi/right/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
@@ -142,6 +148,8 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.width = 19 * 5.3;
         this.attackRangeL = 40 * 5.3;
         this.attackRangeM = 35 * 5.3;
+        this.superAttack = 0.2;
+        this.guardScale = 2;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./pain/right/wait.png"), 19, 46, 4, 0.10, 4, true, 5.3);
             this.goForward = new Animation(asset.getAsset("./pain/right/goForward.png"), 36, 45, 3, 0.25, 3, true, 5.3);
@@ -206,10 +214,18 @@ Character.prototype.draw = function () {
     if (this.playerNumber == 1) {
         n = 0;
     } else {
-        n = 3;
+        if (this.characterNumber == 1){
+            n = 3.8;
+        } else if (this.characterNumber == 2){
+            n = 3;
+        } else if (this.characterNumber == 3){
+            n = 3.5;
+        } else if (this.characterNumber == 4){
+            n = 5.3;
+        }
     }
     if (this.h){
-        this.hit.drawFrame(this.game.clockTick, this.ctx, this.x - this.jumpUp.frameWidth * n, this.y);
+        this.hit.drawFrame(this.game.clockTick, this.ctx, this.x - this.hit.frameWidth * n, this.y);
     }else if (this.middleB){
         this.middleBoxing.drawFrame(this.game.clockTick, this.ctx, this.x - this.middleBoxing.frameWidth * n, this.y);
     }else if (this.sup){
@@ -221,7 +237,7 @@ Character.prototype.draw = function () {
     }else if (this.k){
         this.ki.drawFrame(this.game.clockTick, this.ctx, this.x - this.ki.frameWidth * n, this.y);
     }else if (this.jump){
-        this.jumpUp.drawFrame(this.game.clockTick, this.ctx, this.x - this.goBack.frameWidth * n, this.y);
+        this.jumpUp.drawFrame(this.game.clockTick, this.ctx, this.x - this.jumpUp.frameWidth * n, this.y);
     }else if (this.goF){
         this.goForward.drawFrame(this.game.clockTick, this.ctx, this.x - this.goForward.frameWidth * n, this.y);
     }else if (this.goB){
@@ -241,6 +257,19 @@ Character.prototype.canMove = function(){
 };
 
 Character.prototype.update = function () {
+    if (localStorage.getItem("music") == 1){
+        this.sound.volume = 1;
+        this.hitSound.volume = 1;
+        if(this.playerNumber == 2){
+            this.bg.play();
+        }
+    } else {
+        this.sound.volume = 0;
+        this.hitSound.volume = 0;
+        if(this.playerNumber == 2){
+            this.bg.pause();
+        }
+    }
     if (localStorage.getItem("game") == 1){
         if (this.playerNumber == 1){
             if (this.canAction()) {
@@ -275,7 +304,6 @@ Character.prototype.update = function () {
                 } else {
                     this.goB = false;
                 }
-
             }
 
             if (!this.game.u){
@@ -350,7 +378,7 @@ Character.prototype.update = function () {
                         this.flash.x = this.x + 310 ;
                         this.flash.y = this.y + 20;
                     } else {
-                        this.flash.x = this.x - 410 ;
+                        this.flash.x = this.x - 470 ;
                         this.flash.y = this.y + 20;
                     }
                 }
@@ -380,7 +408,7 @@ Character.prototype.update = function () {
                         this.flash.x = this.x - 170 ;
                         this.flash.y = this.y - 125;
                     } else {
-                        this.flash.x = this.x - 220;
+                        this.flash.x = this.x - 270;
                         this.flash.y = this.y - 125;
                     }
                 }
@@ -423,201 +451,72 @@ Character.prototype.update = function () {
             this.y = this.originalY;
         }
 
+        if (this.lightB || this.middleB) {
+            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
+                && Math.abs(this.y - this.opponent.y) < 150 && this.lightB) {
+                if (this.opponent.g) {
+                    this.opponent.healthPoint -= 0.08;
+                    if (this.opponent.hitSound.currentTime < 0.2) {
+                        this.opponent.hitSound.play();
+                    }
+                    this.power += 0.25;
+                } else {
+                    this.opponent.healthPoint -= 0.15;
+                    if (this.opponent.hitSound.currentTime < 0.2) {
+                        this.opponent.hitSound.play();
+                    }
+                    this.power += 0.5;
+                    this.opponent.h = true;
+                    console.log(this.opponent.h);
+                }
+            }
+            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM
+                && Math.abs(this.y - this.opponent.y) < 150 && this.middleB) {
+                if (this.opponent.g) {
+                    this.opponent.healthPoint -= 0.15;
+                    if (this.opponent.hitSound.currentTime < 0.2) {
+                        this.opponent.hitSound.play();
+                    }
+                    this.power += 0.5;
+                } else {
+                    this.opponent.healthPoint -= 0.3;
+                    if (this.opponent.hitSound.currentTime < 0.2) {
+                        this.opponent.hitSound.play();
+                    }
+                    this.opponent.h = true;
+                    this.power += 1;
+                }
+            }
 
-        if (this.playerNumber == 1) {
-            if (this.lightB || this.middleB){
-                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
-                    && Math.abs(this.y - this.opponent.y) < 150 && this.lightB){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.08;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
+        }else if (this.flash.x != 2000){
+            if (this.playerNumber == 1){
+                if (this.opponent.x - this.flash.x - this.flash.spritesheet.width * 2 - this.opponent.width < 0 && Math.abs(this.y - this.opponent.y) < 150) {
+                    if (this.opponent.characterNumber != 4 || !this.opponent.sup) {
+                        if (this.opponent.g) {
+                            this.opponent.healthPoint -= this.superAttack / 2;
+                        } else {
+                            this.opponent.healthPoint -= this.superAttack;
+                            this.opponent.h = true;
                         }
-                        this.power += 0.25;
-                    } else {
-                        this.opponent.healthPoint -= 0.15;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.power += 0.5;
-                        this.opponent.h = true;
-                    }
-                }
-                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && Math.abs(this.y - this.opponent.y) < 150
-                    && this.middleB){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.15;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.power += 0.5;
-                    } else {
-                        this.opponent.healthPoint -= 0.3;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.opponent.h = true;
-                        this.power += 1;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1 && this.opponent.characterNumber != 1){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.2;
-                    } else {
-                        this.opponent.healthPoint -= 0.4;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 4.5 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1 && this.opponent.characterNumber == 1){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.2;
-                    } else {
-                        this.opponent.healthPoint -= 0.4;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 2){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.14;
-                    } else {
-                        this.opponent.healthPoint -= 0.28;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1.7 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3 && this.opponent.characterNumber != 1){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.16;
-                    } else {
-                        this.opponent.healthPoint -= 0.32;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 3.2 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3 && this.opponent.characterNumber == 1){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.16;
-                    } else {
-                        this.opponent.healthPoint -= 0.32;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1.9 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4 && this.opponent.characterNumber != 1) {
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.1;
-                    } else {
-                        this.opponent.healthPoint -= 0.2;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 3 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4 && this.opponent.characterNumber == 1) {
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.1;
-                    } else {
-                        this.opponent.healthPoint -= 0.2;
-                        this.opponent.h = true;
                     }
                 }
             } else {
-                this.opponent.h = false;
-                this.opponent.hitSound.pause();
-                this.opponent.hitSound.currentTime = 0;
+                if (this.flash.x - this.opponent.x - this.opponent.width < 0 && Math.abs(this.y - this.opponent.y) < 150) {
+                    if (this.opponent.characterNumber != 4 || !this.opponent.sup) {
+                        if (this.opponent.g) {
+                            this.opponent.healthPoint -= this.superAttack / 2;
+                        } else {
+                            this.opponent.healthPoint -= this.superAttack;
+                            this.opponent.h = true;
+                        }
+                    }
+                }
             }
         } else {
-            if (this.lightB || this.middleB){
-                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
-                    && Math.abs(this.y - this.opponent.y) < 150 && this.lightB){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.08;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.power += 0.25;
-                    } else {
-                        this.opponent.healthPoint -= 0.15;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.power += 0.5;
-                        this.opponent.h = true;
-                    }
-                }
-                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && Math.abs(this.y - this.opponent.y) < 150
-                    && this.middleB){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.15;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.power += 0.5;
-                    } else {
-                        this.opponent.healthPoint -= 0.3;
-                        if (this.opponent.hitSound.currentTime < 0.2){
-                            this.opponent.hitSound.play();
-                        }
-                        this.opponent.h = true;
-                        this.power += 1;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.2;
-                    } else {
-                        this.opponent.healthPoint -= 0.4;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 2){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.14;
-                    } else {
-                        this.opponent.healthPoint -= 0.28;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1.4 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3){
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.16;
-                    } else {
-                        this.opponent.healthPoint -= 0.32;
-                        this.opponent.h = true;
-                    }
-                }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 0.8 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
-                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                    if (this.opponent.g){
-                        this.opponent.healthPoint -= 0.1;
-                    } else {
-                        this.opponent.healthPoint -= 0.2;
-                        this.opponent.h = true;
-                    }
-                }
-            } else {
-                this.opponent.h = false;
-                this.opponent.hitSound.pause();
-                this.opponent.hitSound.currentTime = 0;
-            }
+            this.opponent.h = false;
+            this.opponent.hitSound.pause();
+            this.opponent.hitSound.currentTime = 0;
         }
-
 
         if (this.power >= 300 ){
             if (this.playerNumber == 1){

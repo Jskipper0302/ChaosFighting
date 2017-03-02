@@ -19,9 +19,18 @@
             if (e.pageX > 756 && e.pageX < 1164 && e.pageY > 270 && e.pageY < 390 && localStorage.getItem("game") == 0){
                 localStorage.setItem("game", 1);
                 var music = new Audio("./assets/readymusic.mp3");
-                music.play();
+                if(localStorage.getItem("music") == 1){
+                    music.play();
+                }
             }
         }, false);
+        function musicControl(){
+            if(localStorage.getItem("music") == 1){
+                localStorage.setItem("music", 0);
+            } else {
+                localStorage.setItem("music", 1);
+            }
+        }
     </script>
     <div id = "control">
         <div class = "left">
@@ -36,6 +45,7 @@
                 <li>I - ULT</li>
             </ul>
         </div>
+        <button style = "height:60px; width:200px" onclick = "musicControl()">Music ON/OFF</button>
         <div class = "right">
             <ul>Controls for Player 2
                 <li>Right - Move Right</li>
