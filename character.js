@@ -350,7 +350,7 @@ Character.prototype.update = function () {
                         this.flash.x = this.x + 310 ;
                         this.flash.y = this.y + 20;
                     } else {
-                        this.flash.x = this.x - 170 - this.super.frameWidth * 3 ;
+                        this.flash.x = this.x - 410 ;
                         this.flash.y = this.y + 20;
                     }
                 }
@@ -360,7 +360,7 @@ Character.prototype.update = function () {
                         this.flash.x = this.x + 150 ;
                         this.flash.y = this.y;
                     } else {
-                        this.flash.x = this.x - 1200 - this.super.frameWidth * 3 ;
+                        this.flash.x = this.x - 1360 ;
                         this.flash.y = this.y;
                     }
                 }
@@ -370,7 +370,7 @@ Character.prototype.update = function () {
                         this.flash.x = this.x + 150;
                         this.flash.y = this.y - 50;
                     } else {
-                        this.flash.x = this.x - 300 - this.super.frameWidth * 3;
+                        this.flash.x = this.x - 470;
                         this.flash.y = this.y - 50;
                     }
                 }
@@ -423,86 +423,171 @@ Character.prototype.update = function () {
             this.y = this.originalY;
         }
 
-        if (this.lightB || this.middleB){
-            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
-                && Math.abs(this.y - this.opponent.y) < 150 && this.lightB){
-                if (this.opponent.g){
-                    this.opponent.healthPoint -= 0.08;
-                    if (this.opponent.hitSound.currentTime < 0.2){
-                        this.opponent.hitSound.play();
+
+        if (this.playerNumber == 1) {
+            if (this.lightB || this.middleB){
+                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
+                    && Math.abs(this.y - this.opponent.y) < 150 && this.lightB){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.08;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.power += 0.25;
+                    } else {
+                        this.opponent.healthPoint -= 0.15;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.power += 0.5;
+                        this.opponent.h = true;
                     }
-                    this.power += 0.25;
-                } else {
-                    this.opponent.healthPoint -= 0.15;
-                    if (this.opponent.hitSound.currentTime < 0.2){
-                        this.opponent.hitSound.play();
+                }
+                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && Math.abs(this.y - this.opponent.y) < 150
+                    && this.middleB){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.15;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.power += 0.5;
+                    } else {
+                        this.opponent.healthPoint -= 0.3;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.opponent.h = true;
+                        this.power += 1;
                     }
-                    this.power += 0.5;
-                    this.opponent.h = true;
                 }
-            }
-            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && Math.abs(this.y - this.opponent.y) < 150
-                && this.middleB){
-                if (this.opponent.g){
-                    this.opponent.healthPoint -= 0.15;
-                    if (this.opponent.hitSound.currentTime < 0.2){
-                        this.opponent.hitSound.play();
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 5 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.2;
+                    } else {
+                        this.opponent.healthPoint -= 0.4;
+                        this.opponent.h = true;
                     }
-                    this.power += 0.5;
-                } else {
-                    this.opponent.healthPoint -= 0.3;
-                    if (this.opponent.hitSound.currentTime < 0.2){
-                        this.opponent.hitSound.play();
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 2){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.14;
+                    } else {
+                        this.opponent.healthPoint -= 0.28;
+                        this.opponent.h = true;
                     }
-                    this.opponent.h = true;
-                    this.power += 1;
                 }
-            }
-        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-            < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
-            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                if (this.opponent.g){
-                    this.opponent.healthPoint -= 0.2;
-                } else {
-                    this.opponent.healthPoint -= 0.4;
-                    this.opponent.h = true;
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.16;
+                    } else {
+                        this.opponent.healthPoint -= 0.32;
+                        this.opponent.h = true;
+                    }
                 }
-            }
-        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-            < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 2){
-            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                if (this.opponent.g){
-                    this.opponent.healthPoint -= 0.14;
-                } else {
-                    this.opponent.healthPoint -= 0.28;
-                    this.opponent.h = true;
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2.2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.1;
+                    } else {
+                        this.opponent.healthPoint -= 0.2;
+                        this.opponent.h = true;
+                    }
                 }
-            }
-        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-            < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3){
-            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                if (this.opponent.g){
-                    this.opponent.healthPoint -= 0.16;
-                } else {
-                    this.opponent.healthPoint -= 0.32;
-                    this.opponent.h = true;
-                }
-            }
-        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2.2 - this.opponent.x - this.opponent.width)
-            < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
-            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
-                if (this.opponent.g){
-                    this.opponent.healthPoint -= 0.1;
-                } else {
-                    this.opponent.healthPoint -= 0.2;
-                    this.opponent.h = true;
-                }
+            } else {
+                this.opponent.h = false;
+                this.opponent.hitSound.pause();
+                this.opponent.hitSound.currentTime = 0;
             }
         } else {
-            this.opponent.h = false;
-            this.opponent.hitSound.pause();
-            this.opponent.hitSound.currentTime = 0;
+            if (this.lightB || this.middleB){
+                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
+                    && Math.abs(this.y - this.opponent.y) < 150 && this.lightB){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.08;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.power += 0.25;
+                    } else {
+                        this.opponent.healthPoint -= 0.15;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.power += 0.5;
+                        this.opponent.h = true;
+                    }
+                }
+                if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && Math.abs(this.y - this.opponent.y) < 150
+                    && this.middleB){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.15;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.power += 0.5;
+                    } else {
+                        this.opponent.healthPoint -= 0.3;
+                        if (this.opponent.hitSound.currentTime < 0.2){
+                            this.opponent.hitSound.play();
+                        }
+                        this.opponent.h = true;
+                        this.power += 1;
+                    }
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.2;
+                    } else {
+                        this.opponent.healthPoint -= 0.4;
+                        this.opponent.h = true;
+                    }
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 2){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.14;
+                    } else {
+                        this.opponent.healthPoint -= 0.28;
+                        this.opponent.h = true;
+                    }
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.16;
+                    } else {
+                        this.opponent.healthPoint -= 0.32;
+                        this.opponent.h = true;
+                    }
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.1;
+                    } else {
+                        this.opponent.healthPoint -= 0.2;
+                        this.opponent.h = true;
+                    }
+                }
+            } else {
+                this.opponent.h = false;
+                this.opponent.hitSound.pause();
+                this.opponent.hitSound.currentTime = 0;
+            }
         }
+
 
         if (this.power >= 300 ){
             if (this.playerNumber == 1){
