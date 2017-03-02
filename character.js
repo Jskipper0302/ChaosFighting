@@ -144,7 +144,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.middleBoxing = new Animation(asset.getAsset("./pain/right/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5);
             this.jumpUp = new Animation(asset.getAsset("./pain/right/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5);
             this.guard = new Animation(asset.getAsset("./pain/right/guard.png"), 22, 45, 1, 0.12, 1, true, 5);
-            this.hit = new Animation(asset.getAsset("./pain/right/hit.png"), 25, 36, 1, 0.12, 1, true, 5);
+            this.hit = new Animation(asset.getAsset("./pain/right/hit.png"), 25, 43, 1, 0.12, 1, true, 5);
             this.ki = new Animation(asset.getAsset("./pain/right/ki.png"), 29, 45, 1, 0.12, 1, true, 5);
             this.super = new Animation(asset.getAsset("./pain/right/super.png"), 29, 45, 24, 0.06, 24, false, 5);
             this.flash = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
@@ -158,7 +158,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.middleBoxing = new Animation(asset.getAsset("./pain/left/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5);
             this.jumpUp = new Animation(asset.getAsset("./pain/left/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5);
             this.guard = new Animation(asset.getAsset("./pain/left/guard.png"), 22, 45, 1, 0.12, 1, true, 5);
-            this.hit = new Animation(asset.getAsset("./pain/left/hit.png"), 25, 36, 1, 0.12, 1, true, 5);
+            this.hit = new Animation(asset.getAsset("./pain/left/hit.png"), 25, 43, 1, 0.12, 1, true, 5);
             this.ki = new Animation(asset.getAsset("./pain/left/ki.png"), 29, 45, 1, 0.12, 1, true, 5);
             this.super = new Animation(asset.getAsset("./pain/left/super.png"), 29, 45, 24, 0.06, 24, false, 5);
             this.flash = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
