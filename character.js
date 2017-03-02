@@ -37,7 +37,8 @@ function Character(game, asset, playerNumber, characterNumber) {
     if (this.characterNumber == 1){
         this.sound = new Audio("./godzilla/superSound.mp3");
         this.width = 65 * 3.8;
-        this.attackRange = 14 * 3.8;
+        this.attackRangeL = 12 * 3.8;
+        this.attackRangeM = 42 * 3.8;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./godzilla/right/wait.png"), 70, 63, 1, 0.10, 1, true, 3.8);
             this.goForward = new Animation(asset.getAsset("./godzilla/right/goForward.png"), 72, 63, 3, 0.25, 3, true, 3.8);
@@ -70,7 +71,8 @@ function Character(game, asset, playerNumber, characterNumber) {
     } else if (this.characterNumber == 2){
         this.sound = new Audio("./goku/superSound.mp3");
         this.width = 48 * 3;
-        this.attackRange = 39 * 3;
+        this.attackRangeL = 38 * 3;
+        this.attackRangeM = 40 * 3;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./goku/right/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
             this.goForward = new Animation(asset.getAsset("./goku/right/goForward.png"), 76, 79, 2, 0.25, 2, true, 3.2);
@@ -81,7 +83,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.guard = new Animation(asset.getAsset("./goku/right/guard.png"), 37, 88, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./goku/right/hit.png"), 56, 91, 1, 0.12, 1, true, 2.8);
             this.ki = new Animation(asset.getAsset("./goku/right/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
-            this.super = new Animation(asset.getAsset("./goku/right/super.png"), 53, 77, 13, 0.13, 13, false, 3.3);
+            this.super = new Animation(asset.getAsset("./goku/right/super.png"), 53, 77, 13, 0.10, 13, false, 3.3);
             this.flash = new Flash(this.game, asset.getAsset("./goku/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 400;
@@ -95,7 +97,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.guard = new Animation(asset.getAsset("./goku/left/guard.png"), 37, 88, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./goku/left/hit.png"), 56, 91, 1, 0.12, 1, true, 2.8);
             this.ki = new Animation(asset.getAsset("./goku/left/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
-            this.super = new Animation(asset.getAsset("./goku/left/super.png"), 53, 77, 12, 0.13, 12, false, 3.3);
+            this.super = new Animation(asset.getAsset("./goku/left/super.png"), 53, 77, 12, 0.10, 12, false, 3.3);
             this.flash = new Flash(this.game, asset.getAsset("./goku/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
             this.y = 400;
@@ -103,7 +105,8 @@ function Character(game, asset, playerNumber, characterNumber) {
     } else if (this.characterNumber == 3){
         this.sound = new Audio("./itachi/superSound.mp3");
         this.width = 29 * 3.5;
-        this.attackRange = 38 * 3.5 - 30;
+        this.attackRangeL = 38 * 3.5;
+        this.attackRangeM = 30 * 3.5 ;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./itachi/right/wait.png"), 29, 65, 4, 0.10, 4, true, 3.5);
             this.goForward = new Animation(asset.getAsset("./itachi/right/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
@@ -137,7 +140,8 @@ function Character(game, asset, playerNumber, characterNumber) {
     } else if (this.characterNumber == 4){
         this.sound = new Audio("./pain/superSound.mp3");
         this.width = 19 * 5;
-        this.attackRange = 39 * 5;
+        this.attackRangeL = 40 * 5;
+        this.attackRangeM = 35 * 5;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./pain/right/wait.png"), 19, 46, 4, 0.10, 4, true, 5);
             this.goForward = new Animation(asset.getAsset("./pain/right/goForward.png"), 36, 45, 3, 0.25, 3, true, 5);
@@ -419,8 +423,8 @@ Character.prototype.update = function () {
             this.y = this.originalY;
         }
 
-        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange && Math.abs(this.y - this.opponent.y) < 150 && (this.lightB || this.middleB)){
-            if (this.lightB){
+        if (Math.abs(this.y - this.opponent.y) < 150 && (this.lightB || this.middleB)){
+            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL && this.lightB){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.08;
                     if (this.opponent.hitSound.currentTime < 0.2){
@@ -436,7 +440,7 @@ Character.prototype.update = function () {
                     this.opponent.h = true;
                 }
             }
-            if (this.middleB){
+            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && this.middleB){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.15;
                     if (this.opponent.hitSound.currentTime < 0.2){
@@ -509,8 +513,11 @@ Character.prototype.update = function () {
             this.game.up = false;
 
             if (this.opponent.sup){
-                if (this.random > 0.5){
+                if (this.random > 0.5 && this.characterNumber != 4){
                     this.game.num4 = true;
+                }
+                if (this.characterNumber == 4) {
+                    this.game.num5 = true;
                 }
             } else {
                 this.game.num4 = false;
@@ -535,8 +542,19 @@ Character.prototype.update = function () {
                             } else if (this.random < 1){
                                 this.game.up = true;
                             }
-                        } else if (this.power >= 100 && Math.abs(this.x - this.opponent.x) < 700) {
-                            this.game.num5 = true;
+                        } else if (this.power >= 100) {
+                            if (Math.abs(this.x - this.opponent.x) < 600 && this.characterNumber == 1) {
+                                this.game.num5 = true;
+                            }
+                            if (Math.abs(this.x - this.opponent.x) < 700 && this.characterNumber == 2) {
+                                this.game.num5 = true;
+                            }
+                            if (Math.abs(this.x - this.opponent.x) < 500 && this.characterNumber == 3) {
+                                this.game.num5 = true;
+                            }
+                            if (Math.abs(this.x - this.opponent.x) < 400 && this.characterNumber == 4) {
+                                this.game.num5 = true;
+                            }
                         } else {
                             if (this.random < 0.7){
                                 this.game.left = true;
