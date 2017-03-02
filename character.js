@@ -26,7 +26,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         var a = Math.random();
         if (a < 0.25){
             this.characterNumber = 1;
-        } else if (a < 0.50){
+            } else if (a < 0.50){
             this.characterNumber = 2;
         } else if (a < 0.75){
             this.characterNumber = 3;
@@ -38,13 +38,13 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.sound = new Audio("./godzilla/superSound.mp3");
         this.width = 65 * 3.8;
         this.attackRangeL = 12 * 3.8;
-        this.attackRangeM = 42 * 3.8;
+        this.attackRangeM = 6 * 3.8;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./godzilla/right/wait.png"), 70, 63, 1, 0.10, 1, true, 3.8);
             this.goForward = new Animation(asset.getAsset("./godzilla/right/goForward.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.goBack = new Animation(asset.getAsset("./godzilla/right/goBack.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.lightBoxing = new Animation(asset.getAsset("./godzilla/right/lightBoxing.png"), 84, 62, 2, 0.12, 2, false, 3.8);
-            this.middleBoxing = new Animation(asset.getAsset("./godzilla/right/heavyBoxing.png"), 88, 48, 3, 0.1, 3, false, 4.8);
+            this.middleBoxing = new Animation(asset.getAsset("./godzilla/right/heavyBoxing.png"), 77, 63, 2, 0.1, 2, false, 3.8 );
             this.jumpUp = new Animation(asset.getAsset("./godzilla/right/jumpUp.png"), 70, 65, 2, 0.18, 2, false, 3.8);
             this.guard = new Animation(asset.getAsset("./godzilla/right/guard.png"), 73, 47, 1, 0.12, 1, true, 5);
             this.hit = new Animation(asset.getAsset("./godzilla/right/hit.png"), 60, 64, 1, 0.12, 1, true, 3.8);
@@ -58,7 +58,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goForward = new Animation(asset.getAsset("./godzilla/left/goForward.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.goBack = new Animation(asset.getAsset("./godzilla/left/goBack.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.lightBoxing = new Animation(asset.getAsset("./godzilla/left/lightBoxing.png"), 84, 62, 2, 0.12, 2, false, 3.8);
-            this.middleBoxing = new Animation(asset.getAsset("./godzilla/left/heavyBoxing.png"), 88, 48, 3, 0.1, 3, false, 4.8);
+            this.middleBoxing = new Animation(asset.getAsset("./godzilla/left/heavyBoxing.png"), 77, 63, 2, 0.1, 2, false, 3.8);
             this.jumpUp = new Animation(asset.getAsset("./godzilla/left/jumpUp.png"), 70, 65, 2, 0.18, 2, false, 3.8);
             this.guard = new Animation(asset.getAsset("./godzilla/left/guard.png"), 73, 47, 1, 0.12, 1, true, 5);
             this.hit = new Animation(asset.getAsset("./godzilla/left/hit.png"), 60, 64, 1, 0.12, 1, true, 3.8);
@@ -72,7 +72,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.sound = new Audio("./goku/superSound.mp3");
         this.width = 48 * 3;
         this.attackRangeL = 38 * 3;
-        this.attackRangeM = 40 * 3;
+        this.attackRangeM = 25 * 3;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./goku/right/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
             this.goForward = new Animation(asset.getAsset("./goku/right/goForward.png"), 76, 79, 2, 0.25, 2, true, 3.2);
@@ -139,37 +139,37 @@ function Character(game, asset, playerNumber, characterNumber) {
         }
     } else if (this.characterNumber == 4){
         this.sound = new Audio("./pain/superSound.mp3");
-        this.width = 19 * 5;
-        this.attackRangeL = 40 * 5;
-        this.attackRangeM = 35 * 5;
+        this.width = 19 * 5.3;
+        this.attackRangeL = 40 * 5.3;
+        this.attackRangeM = 35 * 5.3;
         if (playerNumber == 1){
-            this.animation = new Animation(asset.getAsset("./pain/right/wait.png"), 19, 46, 4, 0.10, 4, true, 5);
-            this.goForward = new Animation(asset.getAsset("./pain/right/goForward.png"), 36, 45, 3, 0.25, 3, true, 5);
-            this.goBack = new Animation(asset.getAsset("./pain/right/goBack.png"), 31, 44, 4, 0.25, 4, true, 5);
-            this.lightBoxing = new Animation(asset.getAsset("./pain/right/lightBoxing.png"), 54, 45, 2, 0.15, 2, false, 5);
-            this.middleBoxing = new Animation(asset.getAsset("./pain/right/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5);
-            this.jumpUp = new Animation(asset.getAsset("./pain/right/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5);
-            this.guard = new Animation(asset.getAsset("./pain/right/guard.png"), 22, 45, 1, 0.12, 1, true, 5);
-            this.hit = new Animation(asset.getAsset("./pain/right/hit.png"), 25, 43, 1, 0.12, 1, true, 5);
-            this.ki = new Animation(asset.getAsset("./pain/right/ki.png"), 29, 45, 1, 0.12, 1, true, 5);
-            this.super = new Animation(asset.getAsset("./pain/right/super.png"), 29, 45, 24, 0.06, 24, false, 5);
+            this.animation = new Animation(asset.getAsset("./pain/right/wait.png"), 19, 46, 4, 0.10, 4, true, 5.3);
+            this.goForward = new Animation(asset.getAsset("./pain/right/goForward.png"), 36, 45, 3, 0.25, 3, true, 5.3);
+            this.goBack = new Animation(asset.getAsset("./pain/right/goBack.png"), 31, 44, 4, 0.25, 4, true, 5.5);
+            this.lightBoxing = new Animation(asset.getAsset("./pain/right/lightBoxing.png"), 54, 45, 2, 0.15, 2, false, 5.3);
+            this.middleBoxing = new Animation(asset.getAsset("./pain/right/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5.3);
+            this.jumpUp = new Animation(asset.getAsset("./pain/right/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5.3);
+            this.guard = new Animation(asset.getAsset("./pain/right/guard.png"), 22, 45, 1, 0.12, 1, true, 5.3);
+            this.hit = new Animation(asset.getAsset("./pain/right/hit.png"), 25, 43, 1, 0.12, 1, true, 5.3);
+            this.ki = new Animation(asset.getAsset("./pain/right/ki.png"), 29, 45, 1, 0.12, 1, true, 5.3);
+            this.super = new Animation(asset.getAsset("./pain/right/super.png"), 29, 45, 24, 0.09, 24, false, 5.3);
             this.flash = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
             this.x = 220;
-            this.y = 420;
+            this.y = 405;
         } else {
-            this.animation = new Animation(asset.getAsset("./pain/left/wait.png"), 19, 46, 4, 0.10, 4, true, 5);
-            this.goForward = new Animation(asset.getAsset("./pain/left/goForward.png"), 36, 45, 3, 0.25, 3, true, 5);
-            this.goBack = new Animation(asset.getAsset("./pain/left/goBack.png"), 31, 44, 4, 0.25, 4, true, 5);
-            this.lightBoxing = new Animation(asset.getAsset("./pain/left/lightBoxing.png"), 54, 45, 2, 0.15, 2, false, 5);
-            this.middleBoxing = new Animation(asset.getAsset("./pain/left/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5);
-            this.jumpUp = new Animation(asset.getAsset("./pain/left/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5);
-            this.guard = new Animation(asset.getAsset("./pain/left/guard.png"), 22, 45, 1, 0.12, 1, true, 5);
-            this.hit = new Animation(asset.getAsset("./pain/left/hit.png"), 25, 43, 1, 0.12, 1, true, 5);
-            this.ki = new Animation(asset.getAsset("./pain/left/ki.png"), 29, 45, 1, 0.12, 1, true, 5);
-            this.super = new Animation(asset.getAsset("./pain/left/super.png"), 29, 45, 24, 0.06, 24, false, 5);
+            this.animation = new Animation(asset.getAsset("./pain/left/wait.png"), 19, 46, 4, 0.10, 4, true, 5.3);
+            this.goForward = new Animation(asset.getAsset("./pain/left/goForward.png"), 36, 45, 3, 0.25, 3, true, 5.3);
+            this.goBack = new Animation(asset.getAsset("./pain/left/goBack.png"), 31, 44, 4, 0.25, 4, true, 5.3);
+            this.lightBoxing = new Animation(asset.getAsset("./pain/left/lightBoxing.png"), 54, 45, 2, 0.15, 2, false, 5.3);
+            this.middleBoxing = new Animation(asset.getAsset("./pain/left/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5.3);
+            this.jumpUp = new Animation(asset.getAsset("./pain/left/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5.3);
+            this.guard = new Animation(asset.getAsset("./pain/left/guard.png"), 22, 45, 1, 0.12, 1, true, 5.3);
+            this.hit = new Animation(asset.getAsset("./pain/left/hit.png"), 25, 43, 1, 0.12, 1, true, 5.3);
+            this.ki = new Animation(asset.getAsset("./pain/left/ki.png"), 29, 45, 1, 0.12, 1, true, 5.3);
+            this.super = new Animation(asset.getAsset("./pain/left/super.png"), 29, 45, 24, 0.09, 24, false, 5.3);
             this.flash = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
-            this.y = 420;
+            this.y = 405;
         }
     }
     this.originalY = this.y;
@@ -360,7 +360,7 @@ Character.prototype.update = function () {
                         this.flash.x = this.x + 150 ;
                         this.flash.y = this.y;
                     } else {
-                        this.flash.x = this.x - 350 - this.super.frameWidth * 3 ;
+                        this.flash.x = this.x - 1200 - this.super.frameWidth * 3 ;
                         this.flash.y = this.y;
                     }
                 }
@@ -423,7 +423,7 @@ Character.prototype.update = function () {
             this.y = this.originalY;
         }
 
-        if (Math.abs(this.y - this.opponent.y) < 150 && (this.lightB || this.middleB)){
+        if (this.lightB || this.middleB){
             if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL && this.lightB){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.08;
@@ -456,8 +456,8 @@ Character.prototype.update = function () {
                     this.power += 1;
                 }
             }
-
-        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width - this.opponent.x) < 350 && Math.abs(this.y - this.opponent.y) < 150){
+        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+            < this.flash.spritesheet.width * 2 && this.characterNumber != 4){
             if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.2;
@@ -466,7 +466,15 @@ Character.prototype.update = function () {
                     this.opponent.h = true;
                 }
             }
-        }else {
+        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+            < this.flash.spritesheet.width) {
+            if (this.opponent.g){
+                this.opponent.healthPoint -= 0.1;
+            } else {
+                this.opponent.healthPoint -= 0.2;
+                this.opponent.h = true;
+            }
+        } else {
             this.opponent.h = false;
             this.opponent.hitSound.pause();
             this.opponent.hitSound.currentTime = 0;
@@ -530,7 +538,7 @@ Character.prototype.update = function () {
                         this.game.down = false;
                         this.game.num4 = false;
                         this.random = Math.random();
-                        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRange){
+                        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL){
                             if (this.random < 0.4){
                                 this.game.num1 = true;
                             } else if (this.random < 0.8){
@@ -546,7 +554,7 @@ Character.prototype.update = function () {
                             if (Math.abs(this.x - this.opponent.x) < 600 && this.characterNumber == 1) {
                                 this.game.num5 = true;
                             }
-                            if (Math.abs(this.x - this.opponent.x) < 700 && this.characterNumber == 2) {
+                            if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 2) {
                                 this.game.num5 = true;
                             }
                             if (Math.abs(this.x - this.opponent.x) < 500 && this.characterNumber == 3) {
@@ -578,6 +586,7 @@ Character.prototype.update = function () {
             window.location.href = "gameover.html";
         }
     }
+    console.log(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width);
 };
 
 
