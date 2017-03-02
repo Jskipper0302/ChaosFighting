@@ -24,12 +24,14 @@ function Character(game, asset, playerNumber, characterNumber) {
     if (this.characterNumber == 0){
         this.ai = true;
         var a = Math.random();
-        if (a < 0.33){
+        if (a < 0.25){
             this.characterNumber = 1;
-        } else if (a < 0.66){
+        } else if (a < 0.50){
             this.characterNumber = 2;
-        } else {
+        } else if (a < 0.75){
             this.characterNumber = 3;
+        } else {
+            this.characterNumber = 4;
         }
     }
     if (this.characterNumber == 1){
