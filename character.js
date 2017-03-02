@@ -21,7 +21,7 @@ function Character(game, asset, playerNumber, characterNumber) {
     this.ctx = game.ctx;
     this.hitSound = new Audio("./assets/hit.mp3");
     this.sound = new Audio("./godzilla/superSound.mp3");
-    if (characterNumber == 0){
+    if (this.characterNumber == 0){
         this.ai = true;
         var a = Math.random();
         if (a < 0.33){
@@ -132,6 +132,39 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.y = 425;
 
         }
+    } else if (this.characterNumber == 4){
+        this.sound = new Audio("./pain/superSound.mp3");
+        this.width = 19 * 5;
+        this.attackRange = 39 * 5;
+        if (playerNumber == 1){
+            this.animation = new Animation(asset.getAsset("./pain/right/wait.png"), 19, 46, 4, 0.10, 4, true, 5);
+            this.goForward = new Animation(asset.getAsset("./pain/right/goForward.png"), 36, 45, 3, 0.25, 3, true, 5);
+            this.goBack = new Animation(asset.getAsset("./pain/right/goBack.png"), 31, 44, 4, 0.25, 4, true, 5);
+            this.lightBoxing = new Animation(asset.getAsset("./pain/right/lightBoxing.png"), 54, 45, 2, 0.1, 2, false, 5);
+            this.middleBoxing = new Animation(asset.getAsset("./pain/right/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5);
+            this.jumpUp = new Animation(asset.getAsset("./pain/right/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5);
+            this.guard = new Animation(asset.getAsset("./pain/right/guard.png"), 22, 45, 1, 0.12, 1, true, 5);
+            this.hit = new Animation(asset.getAsset("./pain/right/hit.png"), 25, 36, 1, 0.12, 1, true, 5);
+            this.ki = new Animation(asset.getAsset("./pain/right/ki.png"), 29, 45, 1, 0.12, 1, true, 5);
+            this.super = new Animation(asset.getAsset("./pain/right/super.png"), 29, 45, 24, 0.06, 24, false, 5);
+            this.flash = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
+            this.x = 220;
+            this.y = 420;
+        } else {
+            this.animation = new Animation(asset.getAsset("./pain/left/wait.png"), 19, 46, 4, 0.10, 4, true, 5);
+            this.goForward = new Animation(asset.getAsset("./pain/left/goForward.png"), 36, 45, 3, 0.25, 3, true, 5);
+            this.goBack = new Animation(asset.getAsset("./pain/left/goBack.png"), 31, 44, 4, 0.25, 4, true, 5);
+            this.lightBoxing = new Animation(asset.getAsset("./pain/left/lightBoxing.png"), 54, 45, 2, 0.1, 2, false, 5);
+            this.middleBoxing = new Animation(asset.getAsset("./pain/left/heavyBoxing.png"), 56, 64, 3, 0.10, 3, false, 5);
+            this.jumpUp = new Animation(asset.getAsset("./pain/left/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5);
+            this.guard = new Animation(asset.getAsset("./pain/left/guard.png"), 22, 45, 1, 0.12, 1, true, 5);
+            this.hit = new Animation(asset.getAsset("./pain/left/hit.png"), 25, 36, 1, 0.12, 1, true, 5);
+            this.ki = new Animation(asset.getAsset("./pain/left/ki.png"), 29, 45, 1, 0.12, 1, true, 5);
+            this.super = new Animation(asset.getAsset("./pain/left/super.png"), 29, 45, 24, 0.06, 24, false, 5);
+            this.flash = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
+            this.x = 1000;
+            this.y = 420;
+        }
     }
     this.originalY = this.y;
     this.point1 = new Point(this.game, asset.getAsset("./assets/point.png"), 0, 620);
@@ -150,6 +183,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.bg = new Audio("./assets/bgm2.mp3");
         } else if (this.characterNumber == 3){
             this.bg = new Audio("./assets/bgm3.mp3");
+        } else if (this.characterNumber == 4){
+            this.bg = new Audio("./assets/bgm4.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
@@ -206,20 +241,15 @@ Character.prototype.update = function () {
 
                 if (this.game.s){
                     this.k = true;
-                }
-                if (this.game.w){
+                } else if (this.game.w){
                     this.jump = true;
-                }
-                if (this.game.j){
+                } else if (this.game.j){
                     this.lightB = true;
-                }
-                if (this.game.k){
+                } else if (this.game.k){
                     this.middleB = true;
-                }
-                if (this.game.u){
+                } else if (this.game.u){
                     this.g = true;
-                }
-                if (this.game.i && this.power >= 100){
+                } else if (this.game.i && this.power >= 100){
                     this.sup = true;
                     this.power -= 100;
                 }
@@ -253,20 +283,15 @@ Character.prototype.update = function () {
             if (this.canAction()) {
                 if (this.game.down){
                     this.k = true;
-                }
-                if (this.game.up){
+                } else if (this.game.up){
                     this.jump = true;
-                }
-                if (this.game.num1){
+                } else if (this.game.num1){
                     this.lightB = true;
-                }
-                if (this.game.num2){
+                } else if (this.game.num2){
                     this.middleB = true;
-                }
-                if (this.game.num4){
+                } else if (this.game.num4){
                     this.g = true;
-                }
-                if (this.game.num5 && this.power >= 100){
+                } else if (this.game.num5 && this.power >= 100){
                     this.sup = true;
                     this.power -= 100;
                 }
@@ -343,6 +368,16 @@ Character.prototype.update = function () {
                         this.flash.y = this.y - 50;
                     }
                 }
+            } else if (this.characterNumber == 4){
+                if (this.super.currentFrame() > 2){
+                    if (this.playerNumber == 1){
+                        this.flash.x = this.x - 170 ;
+                        this.flash.y = this.y - 125;
+                    } else {
+                        this.flash.x = this.x - 220;
+                        this.flash.y = this.y - 125;
+                    }
+                }
             }
         }
         if (this.lightB) {
@@ -417,11 +452,13 @@ Character.prototype.update = function () {
             }
 
         } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width - this.opponent.x) < 350 && Math.abs(this.y - this.opponent.y) < 150){
-            if (this.opponent.g){
-                this.opponent.healthPoint -= 0.2;
-            } else {
-                this.opponent.healthPoint -= 0.4;
-                this.opponent.h = true;
+            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                if (this.opponent.g){
+                    this.opponent.healthPoint -= 0.2;
+                } else {
+                    this.opponent.healthPoint -= 0.4;
+                    this.opponent.h = true;
+                }
             }
         }else {
             this.opponent.h = false;

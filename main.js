@@ -186,6 +186,31 @@ AM.queueDownload("./itachi/right/ki.png");
 AM.queueDownload("./itachi/right/super.png");
 AM.queueDownload("./itachi/right/superFlash.png");
 
+AM.queueDownload("./pain/right/jumpUp.png");
+AM.queueDownload("./pain/right/heavyBoxing.png");
+AM.queueDownload("./pain/right/lightBoxing.png");
+AM.queueDownload("./pain/right/goBack.png");
+AM.queueDownload("./pain/right/goForward.png");
+AM.queueDownload("./pain/right/wait.png");
+AM.queueDownload("./pain/right/guard.png");
+AM.queueDownload("./pain/right/hit.png");
+AM.queueDownload("./pain/right/ki.png");
+AM.queueDownload("./pain/right/super.png");
+AM.queueDownload("./pain/right/superFlash.png");
+
+AM.queueDownload("./pain/left/jumpUp.png");
+AM.queueDownload("./pain/left/heavyBoxing.png");
+AM.queueDownload("./pain/left/lightBoxing.png");
+AM.queueDownload("./pain/left/goBack.png");
+AM.queueDownload("./pain/left/goForward.png");
+AM.queueDownload("./pain/left/wait.png");
+AM.queueDownload("./pain/left/guard.png");
+AM.queueDownload("./pain/left/hit.png");
+AM.queueDownload("./pain/left/ki.png");
+AM.queueDownload("./pain/left/super.png");
+AM.queueDownload("./pain/left/superFlash.png");
+AM.queueDownload("./pain/superSound.mp3");
+
 AM.queueDownload("./assets/bg1.jpg");
 AM.queueDownload("./assets/bg2.jpg");
 AM.queueDownload("./assets/bg3.jpg");
@@ -196,6 +221,7 @@ AM.queueDownload("./assets/hit.mp3");
 AM.queueDownload("./assets/bgm1.mp3");
 AM.queueDownload("./assets/bgm2.mp3");
 AM.queueDownload("./assets/bgm3.mp3");
+AM.queueDownload("./assets/bgm4.mp3");
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
