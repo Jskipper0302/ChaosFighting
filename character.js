@@ -460,8 +460,18 @@ Character.prototype.update = function () {
                         this.power += 1;
                     }
                 }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1 && this.opponent.characterNumber != 1){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.2;
+                    } else {
+                        this.opponent.healthPoint -= 0.4;
+                        this.opponent.h = true;
+                    }
+                }
             } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 4.5 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
+                < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1 && this.opponent.characterNumber == 1){
                 if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                     if (this.opponent.g){
                         this.opponent.healthPoint -= 0.2;
@@ -481,7 +491,17 @@ Character.prototype.update = function () {
                     }
                 }
             } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1.7 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3){
+                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3 && this.opponent.characterNumber != 1){
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.16;
+                    } else {
+                        this.opponent.healthPoint -= 0.32;
+                        this.opponent.h = true;
+                    }
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 3.2 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width * 1.5 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3 && this.opponent.characterNumber == 1){
                 if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                     if (this.opponent.g){
                         this.opponent.healthPoint -= 0.16;
@@ -491,7 +511,17 @@ Character.prototype.update = function () {
                     }
                 }
             } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1.9 - this.opponent.x - this.opponent.width)
-                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
+                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4 && this.opponent.characterNumber != 1) {
+                if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                    if (this.opponent.g){
+                        this.opponent.healthPoint -= 0.1;
+                    } else {
+                        this.opponent.healthPoint -= 0.2;
+                        this.opponent.h = true;
+                    }
+                }
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 3 - this.opponent.x - this.opponent.width)
+                < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4 && this.opponent.characterNumber == 1) {
                 if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                     if (this.opponent.g){
                         this.opponent.healthPoint -= 0.1;
