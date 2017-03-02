@@ -2,7 +2,7 @@
 Yunhang Jiang, Chenwei Qiu Version 20170302
     
 
-    Demo: https://jskipper0302.github.io/ChaosFighting/index.html
+    [Demo Address](https://jskipper0302.github.io/ChaosFighting/index.html)
     2D fighting game, purpose is beat your target
         2 game modes
             Single mode (Player 1 VS AI)
