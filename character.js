@@ -83,7 +83,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.guard = new Animation(asset.getAsset("./goku/right/guard.png"), 37, 88, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./goku/right/hit.png"), 56, 91, 1, 0.12, 1, true, 2.8);
             this.ki = new Animation(asset.getAsset("./goku/right/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
-            this.super = new Animation(asset.getAsset("./goku/right/super.png"), 53, 77, 13, 0.10, 13, false, 3.3);
+            this.super = new Animation(asset.getAsset("./goku/right/super.png"), 53, 77, 13, 0.15, 13, false, 3.3);
             this.flash = new Flash(this.game, asset.getAsset("./goku/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 400;
@@ -97,7 +97,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.guard = new Animation(asset.getAsset("./goku/left/guard.png"), 37, 88, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./goku/left/hit.png"), 56, 91, 1, 0.12, 1, true, 2.8);
             this.ki = new Animation(asset.getAsset("./goku/left/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
-            this.super = new Animation(asset.getAsset("./goku/left/super.png"), 53, 77, 12, 0.10, 12, false, 3.3);
+            this.super = new Animation(asset.getAsset("./goku/left/super.png"), 53, 77, 12, 0.15, 12, false, 3.3);
             this.flash = new Flash(this.game, asset.getAsset("./goku/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
             this.y = 400;
@@ -117,7 +117,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.guard = new Animation(asset.getAsset("./itachi/right/guard.png"), 26, 55, 1, 0.12, 1, true, 4);
             this.hit = new Animation(asset.getAsset("./itachi/right/hit.png"), 40, 57, 1, 0.12, 1, true, 3.8);
             this.ki = new Animation(asset.getAsset("./itachi/right/ki.png"), 50, 63, 1, 0.12, 1, true, 3.6);
-            this.super = new Animation(asset.getAsset("./itachi/right/super.png"), 50, 63, 25, 0.06, 25, false, 3.5);
+            this.super = new Animation(asset.getAsset("./itachi/right/super.png"), 50, 63, 25, 0.11, 25, false, 3.5);
             this.flash = new Flash(this.game, asset.getAsset("./itachi/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 425;
@@ -131,7 +131,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.guard = new Animation(asset.getAsset("./itachi/left/guard.png"), 26, 55, 1, 0.12, 1, true, 4);
             this.hit = new Animation(asset.getAsset("./itachi/left/hit.png"), 40, 57, 1, 0.12, 1, true, 3.8);
             this.ki = new Animation(asset.getAsset("./itachi/left/ki.png"), 50, 63, 1, 0.12, 1, true, 3.6);
-            this.super = new Animation(asset.getAsset("./itachi/left/super.png"), 50, 63, 25, 0.06, 25, false, 3.5);
+            this.super = new Animation(asset.getAsset("./itachi/left/super.png"), 50, 63, 25, 0.11, 25, false, 3.5);
             this.flash = new Flash(this.game, asset.getAsset("./itachi/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
             this.y = 425;
@@ -406,9 +406,9 @@ Character.prototype.update = function () {
             var jumpDistance = this.jumpUp.elapsedTime / this.jumpUp.totalTime;
             var totalHeight = 300;
 
-            if (jumpDistance > 0.5)
+            if (jumpDistance > 0.5) {
                 jumpDistance = 1 - jumpDistance;
-
+            }
             this.y = this.originalY - totalHeight * (-4 * (jumpDistance * jumpDistance - jumpDistance));
         }
         if (this.h){
@@ -424,7 +424,8 @@ Character.prototype.update = function () {
         }
 
         if (this.lightB || this.middleB){
-            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL && this.lightB){
+            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
+                && Math.abs(this.y - this.opponent.y) < 150 && this.lightB){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.08;
                     if (this.opponent.hitSound.currentTime < 0.2){
@@ -440,7 +441,8 @@ Character.prototype.update = function () {
                     this.opponent.h = true;
                 }
             }
-            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && this.middleB){
+            if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM && Math.abs(this.y - this.opponent.y) < 150
+                && this.middleB){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.15;
                     if (this.opponent.hitSound.currentTime < 0.2){
@@ -457,7 +459,7 @@ Character.prototype.update = function () {
                 }
             }
         } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-            < this.flash.spritesheet.width * 2 && this.characterNumber != 4){
+            < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 1){
             if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                 if (this.opponent.g){
                     this.opponent.healthPoint -= 0.2;
@@ -467,12 +469,34 @@ Character.prototype.update = function () {
                 }
             }
         } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
-            < this.flash.spritesheet.width) {
-            if (this.opponent.g){
-                this.opponent.healthPoint -= 0.1;
-            } else {
-                this.opponent.healthPoint -= 0.2;
-                this.opponent.h = true;
+            < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 2){
+            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                if (this.opponent.g){
+                    this.opponent.healthPoint -= 0.14;
+                } else {
+                    this.opponent.healthPoint -= 0.28;
+                    this.opponent.h = true;
+                }
+            }
+        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width)
+            < this.flash.spritesheet.width * 2 && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 3){
+            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                if (this.opponent.g){
+                    this.opponent.healthPoint -= 0.16;
+                } else {
+                    this.opponent.healthPoint -= 0.32;
+                    this.opponent.h = true;
+                }
+            }
+        } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2.2 - this.opponent.x - this.opponent.width)
+            < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
+            if (this.opponent.characterNumber != 4 || !this.opponent.sup){
+                if (this.opponent.g){
+                    this.opponent.healthPoint -= 0.1;
+                } else {
+                    this.opponent.healthPoint -= 0.2;
+                    this.opponent.h = true;
+                }
             }
         } else {
             this.opponent.h = false;
@@ -586,7 +610,6 @@ Character.prototype.update = function () {
             window.location.href = "gameover.html";
         }
     }
-    console.log(this.flash.x + this.flash.spritesheet.width * 2 - this.opponent.x - this.opponent.width);
 };
 
 
