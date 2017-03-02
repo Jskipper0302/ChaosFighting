@@ -490,7 +490,7 @@ Character.prototype.update = function () {
                         this.opponent.h = true;
                     }
                 }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 2.2 - this.opponent.x - this.opponent.width)
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1.9 - this.opponent.x - this.opponent.width)
                 < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
                 if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                     if (this.opponent.g){
@@ -571,7 +571,7 @@ Character.prototype.update = function () {
                         this.opponent.h = true;
                     }
                 }
-            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 1 - this.opponent.x - this.opponent.width)
+            } else if (this.flash.x != 2000 && Math.abs(this.flash.x + this.flash.spritesheet.width * 0.8 - this.opponent.x - this.opponent.width)
                 < this.flash.spritesheet.width && Math.abs(this.y - this.opponent.y) < 150 && this.characterNumber == 4) {
                 if (this.opponent.characterNumber != 4 || !this.opponent.sup){
                     if (this.opponent.g){
