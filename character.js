@@ -577,32 +577,45 @@ Character.prototype.update = function () {
                         this.game.num4 = false;
                         this.random = Math.random();
                         if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL){
-                            if (this.random < 0.4){
+                            if (this.random < 0.35){
                                 this.game.num1 = true;
-                            } else if (this.random < 0.8){
+                            } else if (this.random < 0.7){
                                 this.game.num2 = true;
-                            } else if (this.random < 0.85){
+                            } else if (this.random < 0.75){
                                 this.game.right = true;
-                            } else if (this.random < 0.9){
+                            } else if (this.random < 0.8){
                                 this.game.num4 = true;
-                            } else if (this.random < 1){
+                            } else if (this.random < 0.85){
                                 this.game.up = true;
+                            } else if (this.power >= 100) {
+                                if (this.characterNumber == 1) {
+                                    this.game.num5 = true;
+                                }
+                                if (this.characterNumber == 2) {
+                                    this.game.num5 = true;
+                                }
+                                if (this.characterNumber == 3) {
+                                    this.game.num5 = true;
+                                }
+                                if (this.characterNumber == 4 && Math.abs(this.x - this.opponent.x) < 400) {
+                                    this.game.num5 = true;
+                                }
                             }
-                        } else if (this.power >= 100) {
-                            if (Math.abs(this.x - this.opponent.x) < 600 && this.characterNumber == 1) {
-                                this.game.num5 = true;
-                            }
-                            if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 2) {
-                                this.game.num5 = true;
-                            }
-                            if (Math.abs(this.x - this.opponent.x) < 500 && this.characterNumber == 3) {
-                                this.game.num5 = true;
-                            }
-                            if (Math.abs(this.x - this.opponent.x) < 400 && this.characterNumber == 4) {
-                                this.game.num5 = true;
-                            }
-                        } else {
-                            if (this.random < 0.7){
+                        }  else {
+                            if (this.power >= 100 && this.random < 0.3) {
+                                if (Math.abs(this.x - this.opponent.x) < 600 && this.characterNumber == 1) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 2) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 500 && this.characterNumber == 3) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 400 && this.characterNumber == 4) {
+                                    this.game.num5 = true;
+                                }
+                            } else if (this.random < 0.7){
                                 this.game.left = true;
                             } else if (this.power < 300){
                                 this.game.down = true;
