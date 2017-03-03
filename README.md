@@ -10,11 +10,13 @@ Yunhang Jiang, Chenwei Qiu Version 20170302
         Each character include 8 actions:
             Attack1, Attack2, Block, Ultimate, Jump, Right, Left, and Celebrate
             
-        Each player has 1 point of ki when the game start. Celebrate, Attack1, and Attcak2 is the way to get ki
+        Each player has 1 point of ki when the game start. Celebrate, Attack1, and Attcak2 is the way to recover ki
+        
+        Hit by targer will also recover ki
         
         Ultimate will deduct 1 point of ki, and the Max of ki is 3 points
         
-        Block will reduce target 50% damage
+        Block will reduce target 50% of dadmage and ki recover
         
     Control
         Player 1:

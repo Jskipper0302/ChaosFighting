@@ -234,6 +234,7 @@ Character.prototype.draw = function () {
     }
     if (this.h){
         this.hit.drawFrame(this.game.clockTick, this.ctx, this.x - this.hit.frameWidth * n, this.y);
+        this.power += 0.5;
     }else if (this.middleB){
         this.middleBoxing.drawFrame(this.game.clockTick, this.ctx, this.x - this.middleBoxing.frameWidth * n, this.y);
     }else if (this.sup){
@@ -466,13 +467,13 @@ Character.prototype.update = function () {
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.5;
+                    this.power += 0.4 / this.guardScale;
                 } else {
                     this.opponent.healthPoint -= this.lightAttack;
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.5;
+                    this.power += 0.4;
                     this.opponent.h = true;
                     console.log(this.opponent.h);
                 }
@@ -484,14 +485,14 @@ Character.prototype.update = function () {
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 1;
+                    this.power += 0.7 / this.guardScale;
                 } else {
                     this.opponent.healthPoint -= this.middleAttack;
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
                     this.opponent.h = true;
-                    this.power += 1;
+                    this.power += 0.7;
                 }
             }
 
