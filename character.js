@@ -79,8 +79,8 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.guardScale = 2;
         if (playerNumber == 1){
             this.animation = new Animation(asset.getAsset("./goku/right/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
-            this.goForward = new Animation(asset.getAsset("./goku/right/goForward.png"), 76, 79, 2, 0.25, 2, true, 3.2);
-            this.goBack = new Animation(asset.getAsset("./goku/right/goBack.png"), 57, 78, 2, 0.25, 2, true, 3.2);
+            this.goForward = new Animation(asset.getAsset("./goku/right/goForward.png"), 76, 79, 1, 0.25, 1, true, 3.2);
+            this.goBack = new Animation(asset.getAsset("./goku/right/goBack.png"), 57, 78, 1, 0.25, 1, true, 3.2);
             this.lightBoxing = new Animation(asset.getAsset("./goku/right/lightBoxing.png"), 87, 78, 2, 0.1, 2, false, 3.2);
             this.middleBoxing = new Animation(asset.getAsset("./goku/right/heavyBoxing.png"), 80, 89, 2, 0.12, 2, false, 2.9);
             this.jumpUp = new Animation(asset.getAsset("./goku/right/jumpUp.png"), 40, 91, 3, 0.18, 3, false, 3);
@@ -93,8 +93,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.y = 400;
         } else {
             this.animation = new Animation(asset.getAsset("./goku/left/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
-            this.goForward = new Animation(asset.getAsset("./goku/left/goForward.png"), 76, 79, 2, 0.25, 2, true, 3.2);
-            this.goBack = new Animation(asset.getAsset("./goku/left/goBack.png"), 57, 78, 2, 0.25, 2, true, 3.2);
+            this.goForward = new Animation(asset.getAsset("./goku/left/goForward.png"), 76, 79, 1, 0.25,1, true, 3.2);
+            this.goBack = new Animation(asset.getAsset("./goku/left/goBack.png"), 57, 78, 1, 0.25, 1, true, 3.2);
             this.lightBoxing = new Animation(asset.getAsset("./goku/left/lightBoxing.png"), 87, 78, 2, 0.1, 2, false, 3.2);
             this.middleBoxing = new Animation(asset.getAsset("./goku/left/heavyBoxing.png"), 80, 89, 2, 0.12, 2, false, 2.9);
             this.jumpUp = new Animation(asset.getAsset("./goku/left/jumpUp.png"), 40, 91, 3, 0.18, 3, false, 3);
