@@ -24,14 +24,16 @@ function Character(game, asset, playerNumber, characterNumber) {
     if (this.characterNumber == 0){
         this.ai = true;
         var a = Math.random();
-        if (a < 0.25){
+        if (a < 0.2) {
             this.characterNumber = 1;
-            } else if (a < 0.50){
+            } else if (a < 0.4) {
             this.characterNumber = 2;
-        } else if (a < 0.75){
+        } else if (a < 0.6) {
             this.characterNumber = 3;
-        } else {
+        } else if (a < 0.8) {
             this.characterNumber = 4;
+        } else {
+            this.characterNumber = 5;
         }
     }
     if (this.characterNumber == 1){
@@ -171,7 +173,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.super = new Animation(asset.getAsset("./pain/right/super.png"), 29, 45, 24, 0.09, 24, false, 5.3);
             this.flash = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
             this.x = 220;
-            this.y = 405;
+            this.y = 410;
         } else {
             this.animation = new Animation(asset.getAsset("./pain/left/wait.png"), 19, 46, 4, 0.10, 4, true, 5.3);
             this.goForward = new Animation(asset.getAsset("./pain/left/goForward.png"), 36, 45, 3, 0.25, 3, true, 5.3);
@@ -185,7 +187,45 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.super = new Animation(asset.getAsset("./pain/left/super.png"), 29, 45, 24, 0.09, 24, false, 5.3);
             this.flash = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
-            this.y = 405;
+            this.y = 410;
+        }
+    } else if (this.characterNumber == 5){
+        this.sound = new Audio("./piccolo/superSound.mp3");
+        this.width = 105 * 1.7;
+        this.attackRangeL = 46 * 1.7;
+        this.attackRangeM = 106 * 1.7;
+        this.lightAttack = 0.06;
+        this.middleAttack = 0.08;
+        this.superAttack = 0.2;
+        this.guardScale = 2;
+        if (playerNumber == 1){
+            this.animation = new Animation(asset.getAsset("./piccolo/right/wait.png"), 105, 117, 4, 0.10, 4, true, 1.7);
+            this.goForward = new Animation(asset.getAsset("./piccolo/right/goForward.png"), 189, 117, 1, 0.25, 1, true, 1.6);
+            this.goBack = new Animation(asset.getAsset("./piccolo/right/goBack.png"), 136, 150, 1, 0.25, 1, true, 1.4);
+            this.lightBoxing = new Animation(asset.getAsset("./piccolo/right/lightBoxing.png"), 151, 114, 2, 0.2, 2, false, 1.7);
+            this.middleBoxing = new Animation(asset.getAsset("./piccolo/right/heavyBoxing.png"), 201, 111, 2, 0.2, 2, false, 1.7);
+            this.jumpUp = new Animation(asset.getAsset("./piccolo/right/jumpUp.png"), 88, 154, 2, 0.18, 2, false, 1.7);
+            this.guard = new Animation(asset.getAsset("./piccolo/right/guard.png"), 90, 115, 1, 0.12, 1, true, 1.7);
+            this.hit = new Animation(asset.getAsset("./piccolo/right/hit.png"), 104, 125, 1, 0.12, 1, true, 1.7);
+            this.ki = new Animation(asset.getAsset("./piccolo/right/ki.png"), 101, 118, 1, 0.12, 1, true, 1.7);
+            this.super = new Animation(asset.getAsset("./piccolo/right/super.png"), 176, 122, 8, 0.4, 8, false, 1.7);
+            this.flash = new Flash(this.game, asset.getAsset("./piccolo/right/superFlash.png"), 2000, 1000);
+            this.x = 220;
+            this.y = 445;
+        } else {
+            this.animation = new Animation(asset.getAsset("./piccolo/left/wait.png"), 105, 117, 4, 0.10, 4, true, 1.7);
+            this.goForward = new Animation(asset.getAsset("./piccolo/left/goForward.png"), 189, 117, 1, 0.25, 1, true, 1.6);
+            this.goBack = new Animation(asset.getAsset("./piccolo/left/goBack.png"), 136, 150, 1, 0.25, 1, true, 1.4);
+            this.lightBoxing = new Animation(asset.getAsset("./piccolo/left/lightBoxing.png"), 151, 114, 2, 0.2, 2, false, 1.7);
+            this.middleBoxing = new Animation(asset.getAsset("./piccolo/left/heavyBoxing.png"), 201, 111, 2, 0.2, 2, false, 1.7);
+            this.jumpUp = new Animation(asset.getAsset("./piccolo/left/jumpUp.png"), 88, 154, 2, 0.18, 2, false, 1.7);
+            this.guard = new Animation(asset.getAsset("./piccolo/left/guard.png"), 90, 115, 1, 0.12, 1, true, 1.7);
+            this.hit = new Animation(asset.getAsset("./piccolo/left/hit.png"), 104, 125, 1, 0.12, 1, true, 1.7);
+            this.ki = new Animation(asset.getAsset("./piccolo/left/ki.png"), 101, 118, 1, 0.12, 1, true, 1.7);
+            this.super = new Animation(asset.getAsset("./piccolo/left/super.png"), 176, 122, 8, 0.4, 8, false, 1.7);
+            this.flash = new Flash(this.game, asset.getAsset("./piccolo/left/superFlash.png"), 2000, 1000);
+            this.x = 1000;
+            this.y = 445;
         }
     }
     this.originalY = this.y;
@@ -207,6 +247,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.bg = new Audio("./assets/bgm3.mp3");
         } else if (this.characterNumber == 4){
             this.bg = new Audio("./assets/bgm4.mp3");
+        } else if (this.characterNumber == 5){
+            this.bg = new Audio("./assets/bgm5.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
@@ -230,6 +272,8 @@ Character.prototype.draw = function () {
             n = 3.5;
         } else if (this.characterNumber == 4){
             n = 5.3;
+        } else if (this.characterNumber == 5){
+            n = 1.7;
         }
     }
     if (this.h){
@@ -420,6 +464,16 @@ Character.prototype.update = function () {
                     } else {
                         this.flash.x = this.x - 270;
                         this.flash.y = this.y - 125;
+                    }
+                }
+            } else if (this.characterNumber == 5){
+                if (this.super.currentFrame() > 3){
+                    if (this.playerNumber == 1){
+                        this.flash.x = this.x + 280 ;
+                        this.flash.y = this.y  + 28;
+                    } else {
+                        this.flash.x = this.x - 2070;
+                        this.flash.y = this.y + 28;
                     }
                 }
             }

@@ -42,5 +42,6 @@ Yunhang Jiang, Chenwei Qiu Version 20170302
      Characters Ultimate Characteristic:
         1: Godzilla: Fast Speed, Medium damage, Small Range
         2: Goku: Media Speed, Low damage, Large Range
-        3: Itachi: Slow speed, High damage, Medium Range
+        3: Itachi: Slow Speed, High damage, Medium Range
         4: Pain: Media Speed, Medium damage, Small Range with Invincible
+        5. Piccolo: Slow Speed, Medium damage, Large Range
