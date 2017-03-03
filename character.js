@@ -467,13 +467,13 @@ Character.prototype.update = function () {
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.4 / this.guardScale;
+                    this.power += 0.4;
                 } else {
                     this.opponent.healthPoint -= this.lightAttack;
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.4;
+                    this.power += 0.4 / this.guardScale;
                     this.opponent.h = true;
                     console.log(this.opponent.h);
                 }
@@ -485,14 +485,14 @@ Character.prototype.update = function () {
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.7 / this.guardScale;
+                    this.power += 0.7;
                 } else {
                     this.opponent.healthPoint -= this.middleAttack;
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
                     this.opponent.h = true;
-                    this.power += 0.7;
+                    this.power += 0.7 / this.guardScale;
                 }
             }
 
