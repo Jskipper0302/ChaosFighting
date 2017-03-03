@@ -671,6 +671,9 @@ Character.prototype.update = function () {
                                 if (this.characterNumber == 4 && Math.abs(this.x - this.opponent.x) < 400) {
                                     this.game.num5 = true;
                                 }
+                                if (this.characterNumber == 5) {
+                                    this.game.num5 = true;
+                                }
                             }
                         }  else {
                             if (this.power >= 100 && this.random < 0.3) {
@@ -684,6 +687,9 @@ Character.prototype.update = function () {
                                     this.game.num5 = true;
                                 }
                                 if (Math.abs(this.x - this.opponent.x) < 400 && this.characterNumber == 4) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 5) {
                                     this.game.num5 = true;
                                 }
                             } else if (this.random < 0.7){
