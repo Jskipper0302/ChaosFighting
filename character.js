@@ -234,7 +234,9 @@ Character.prototype.draw = function () {
     }
     if (this.h){
         this.hit.drawFrame(this.game.clockTick, this.ctx, this.x - this.hit.frameWidth * n, this.y);
-        this.power += 0.5;
+        if (this.power < 300) {
+            this.power += 0.75;
+        }
     }else if (this.middleB){
         this.middleBoxing.drawFrame(this.game.clockTick, this.ctx, this.x - this.middleBoxing.frameWidth * n, this.y);
     }else if (this.sup){
@@ -366,7 +368,7 @@ Character.prototype.update = function () {
         }
 
         if (this.power < 300 && this.k){
-            this.power += 1;
+            this.power += 1.5;
         }
         if (this.sup) {
             if (this.super.elapsedTime < 0.1){
@@ -467,15 +469,18 @@ Character.prototype.update = function () {
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.4;
+                    if (this.power < 300) {
+                        this.power += 0.5 / this.guardScale;
+                    }
                 } else {
                     this.opponent.healthPoint -= this.lightAttack;
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.4 / this.guardScale;
+                    if (this.power < 300) {
+                        this.power += 0.5;
+                    }
                     this.opponent.h = true;
-                    console.log(this.opponent.h);
                 }
             }
             if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM
@@ -485,14 +490,18 @@ Character.prototype.update = function () {
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
-                    this.power += 0.7;
+                    if (this.power < 300) {
+                        this.power += 1 / this.guardScale;
+                    }
                 } else {
                     this.opponent.healthPoint -= this.middleAttack;
                     if (this.opponent.hitSound.currentTime < 0.2) {
                         this.opponent.hitSound.play();
                     }
+                    if (this.power < 300) {
+                        this.power += 1;
+                    }
                     this.opponent.h = true;
-                    this.power += 0.7 / this.guardScale;
                 }
             }
 
