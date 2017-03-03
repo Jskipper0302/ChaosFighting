@@ -24,16 +24,18 @@ function Character(game, asset, playerNumber, characterNumber) {
     if (this.characterNumber == 0){
         this.ai = true;
         var a = Math.random();
-        if (a < 0.2) {
+        if (a < 0.16) {
             this.characterNumber = 1;
-            } else if (a < 0.4) {
+            } else if (a < 0.32) {
             this.characterNumber = 2;
-        } else if (a < 0.6) {
+        } else if (a < 0.48) {
             this.characterNumber = 3;
-        } else if (a < 0.8) {
+        } else if (a < 0.64) {
             this.characterNumber = 4;
-        } else {
+        } else if (a < 0.8) {
             this.characterNumber = 5;
+        } else {
+            this.characterNumber = 6;
         }
     }
     if (this.characterNumber == 1){
@@ -227,7 +229,46 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.x = 1000;
             this.y = 445;
         }
+    }else if (this.characterNumber == 6){
+        this.sound = new Audio("./ultraman/superSound.mp3");
+        this.width = 28 * 5.4;
+        this.attackRangeL = 13 * 5.4;
+        this.attackRangeM = 8 * 5.4;
+        this.lightAttack = 0.04;
+        this.middleAttack = 0.07;
+        this.superAttack = 0.035;
+        this.guardScale = 2;
+        if (playerNumber == 1){
+            this.animation = new Animation(asset.getAsset("./ultraman/right/wait.png"), 28, 42, 4, 0.50, 4, true, 5.4);
+            this.goForward = new Animation(asset.getAsset("./ultraman/right/goForward.png"), 26, 42, 2, 0.25, 2, true, 5.4);
+            this.goBack = new Animation(asset.getAsset("./ultraman/right/goBack.png"), 26, 42, 2, 0.25, 2, true, 5.4);
+            this.lightBoxing = new Animation(asset.getAsset("./ultraman/right/lightBoxing.png"), 41, 43, 2, 0.2, 2, false, 5.4);
+            this.middleBoxing = new Animation(asset.getAsset("./ultraman/right/heavyBoxing.png"), 36, 42, 2, 0.2, 2, false, 5.4);
+            this.jumpUp = new Animation(asset.getAsset("./ultraman/right/jumpUp.png"), 24, 31, 1, 0.3, 1, false, 5.4);
+            this.guard = new Animation(asset.getAsset("./ultraman/right/guard.png"), 35, 44, 1, 0.12, 1, true, 5.4);
+            this.hit = new Animation(asset.getAsset("./ultraman/right/hit.png"), 23, 38, 1, 0.12, 1, true, 5.4);
+            this.ki = new Animation(asset.getAsset("./ultraman/right/ki.png"), 29, 42, 1, 0.12, 1, true, 5.4);
+            this.super = new Animation(asset.getAsset("./ultraman/right/super.png"), 28, 42, 12, 0.4, 12, false, 5.4);
+            this.flash = new Flash(this.game, asset.getAsset("./ultraman/right/superFlash.png"), 2000, 1000);
+            this.x = 220;
+            this.y = 420;
+        } else {
+            this.animation = new Animation(asset.getAsset("./ultraman/left/wait.png"), 28, 42, 4, 0.50, 4, true, 5.4);
+            this.goForward = new Animation(asset.getAsset("./ultraman/left/goForward.png"), 26, 42, 2, 0.25, 2, true, 5.4);
+            this.goBack = new Animation(asset.getAsset("./ultraman/left/goBack.png"), 26, 42, 2, 0.25, 2, true, 5.4);
+            this.lightBoxing = new Animation(asset.getAsset("./ultraman/left/lightBoxing.png"), 41, 43, 2, 0.2, 2, false, 5.4);
+            this.middleBoxing = new Animation(asset.getAsset("./ultraman/left/heavyBoxing.png"), 36, 42, 2, 0.2, 2, false, 5.4);
+            this.jumpUp = new Animation(asset.getAsset("./ultraman/left/jumpUp.png"), 24, 31, 1, 0.3, 1, false, 5.4);
+            this.guard = new Animation(asset.getAsset("./ultraman/left/guard.png"), 35, 44, 1, 0.12, 1, true, 5.4);
+            this.hit = new Animation(asset.getAsset("./ultraman/left/hit.png"), 23, 38, 1, 0.12, 1, true, 5.4);
+            this.ki = new Animation(asset.getAsset("./ultraman/left/ki.png"), 29, 42, 1, 0.12, 1, true, 5.4);
+            this.super = new Animation(asset.getAsset("./ultraman/left/super.png"), 28, 42, 12, 0.4, 12, false, 5.4);
+            this.flash = new Flash(this.game, asset.getAsset("./ultraman/left/superFlash.png"), 2000, 1000);
+            this.x = 1000;
+            this.y = 420;
+        }
     }
+
     this.originalY = this.y;
     this.point1 = new Point(this.game, asset.getAsset("./assets/point.png"), 0, 620);
     this.point2 = new Point(this.game, asset.getAsset("./assets/point.png"), 0, 620);
@@ -249,6 +290,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.bg = new Audio("./assets/bgm4.mp3");
         } else if (this.characterNumber == 5){
             this.bg = new Audio("./assets/bgm5.mp3");
+        } else {
+            this.bg = new Audio("./assets/bgm6.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
@@ -274,12 +317,18 @@ Character.prototype.draw = function () {
             n = 5.3;
         } else if (this.characterNumber == 5){
             n = 1.7;
+        } else if (this.characterNumber == 6) {
+            n = 5.4;
         }
     }
     if (this.h){
         this.hit.drawFrame(this.game.clockTick, this.ctx, this.x - this.hit.frameWidth * n, this.y);
         if (this.power < 300) {
-            this.power += 0.75;
+            if (this.opponent.characterNumber == 6) {
+                this.power += 0.3;
+            } else {
+                this.power += 0.75;
+            }
         }
     }else if (this.middleB){
         this.middleBoxing.drawFrame(this.game.clockTick, this.ctx, this.x - this.middleBoxing.frameWidth * n, this.y);
@@ -474,6 +523,16 @@ Character.prototype.update = function () {
                     } else {
                         this.flash.x = this.x - 2070;
                         this.flash.y = this.y + 28;
+                    }
+                }
+            } else if (this.characterNumber == 6){
+                if (this.super.currentFrame() > 0){
+                    if (this.playerNumber == 1){
+                        this.flash.x = this.x + 150;
+                        this.flash.y = this.y;
+                    } else {
+                        this.flash.x = this.x - 1700;
+                        this.flash.y = this.y;
                     }
                 }
             }
@@ -674,6 +733,9 @@ Character.prototype.update = function () {
                                 if (this.characterNumber == 5) {
                                     this.game.num5 = true;
                                 }
+                                if (this.characterNumber == 6) {
+                                    this.game.num5 = true;
+                                }
                             }
                         }  else {
                             if (this.power >= 100 && this.random < 0.3) {
@@ -690,6 +752,9 @@ Character.prototype.update = function () {
                                     this.game.num5 = true;
                                 }
                                 if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 5) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 6) {
                                     this.game.num5 = true;
                                 }
                             } else if (this.random < 0.7){

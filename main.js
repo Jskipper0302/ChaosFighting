@@ -235,6 +235,30 @@ AM.queueDownload("./piccolo/left/ki.png");
 AM.queueDownload("./piccolo/left/super.png");
 AM.queueDownload("./piccolo/left/superFlash.png");
 
+AM.queueDownload("./ultraman/right/jumpUp.png");
+AM.queueDownload("./ultraman/right/heavyBoxing.png");
+AM.queueDownload("./ultraman/right/lightBoxing.png");
+AM.queueDownload("./ultraman/right/goBack.png");
+AM.queueDownload("./ultraman/right/goForward.png");
+AM.queueDownload("./ultraman/right/wait.png");
+AM.queueDownload("./ultraman/right/guard.png");
+AM.queueDownload("./ultraman/right/hit.png");
+AM.queueDownload("./ultraman/right/ki.png");
+AM.queueDownload("./ultraman/right/super.png");
+AM.queueDownload("./ultraman/right/superFlash.png");
+
+AM.queueDownload("./ultraman/left/jumpUp.png");
+AM.queueDownload("./ultraman/left/heavyBoxing.png");
+AM.queueDownload("./ultraman/left/lightBoxing.png");
+AM.queueDownload("./ultraman/left/goBack.png");
+AM.queueDownload("./ultraman/left/goForward.png");
+AM.queueDownload("./ultraman/left/wait.png");
+AM.queueDownload("./ultraman/left/guard.png");
+AM.queueDownload("./ultraman/left/hit.png");
+AM.queueDownload("./ultraman/left/ki.png");
+AM.queueDownload("./ultraman/left/super.png");
+AM.queueDownload("./ultraman/left/superFlash.png");
+
 AM.queueDownload("./assets/bg1.jpg");
 AM.queueDownload("./assets/bg2.jpg");
 AM.queueDownload("./assets/bg3.jpg");
@@ -246,6 +270,8 @@ AM.queueDownload("./assets/bgm1.mp3");
 AM.queueDownload("./assets/bgm2.mp3");
 AM.queueDownload("./assets/bgm3.mp3");
 AM.queueDownload("./assets/bgm4.mp3");
+AM.queueDownload("./assets/bgm5.mp3");
+AM.queueDownload("./assets/bgm6.mp3");
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");
