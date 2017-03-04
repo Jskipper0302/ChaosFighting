@@ -149,6 +149,8 @@ AM.queueDownload("./goku/right/hit.png");
 AM.queueDownload("./goku/right/ki.png");
 AM.queueDownload("./goku/right/super.png");
 AM.queueDownload("./goku/right/superFlash.png");
+AM.queueDownload("./goku/right/superFlash1.png");
+AM.queueDownload("./goku/right/superFlash2.png");
 AM.queueDownload("./goku/superSound.mp3");
 
 AM.queueDownload("./goku/left/jumpUp.png");
@@ -162,6 +164,8 @@ AM.queueDownload("./goku/left/hit.png");
 AM.queueDownload("./goku/left/ki.png");
 AM.queueDownload("./goku/left/super.png");
 AM.queueDownload("./goku/left/superFlash.png");
+AM.queueDownload("./goku/left/superFlash1.png");
+AM.queueDownload("./goku/left/superFlash2.png");
 
 AM.queueDownload("./itachi/left/jumpUp.png");
 AM.queueDownload("./itachi/left/heavyBoxing.png");
@@ -173,6 +177,8 @@ AM.queueDownload("./itachi/left/hit.png");
 AM.queueDownload("./itachi/left/ki.png");
 AM.queueDownload("./itachi/left/super.png");
 AM.queueDownload("./itachi/left/superFlash.png");
+AM.queueDownload("./itachi/left/superFlash1.png");
+AM.queueDownload("./itachi/left/superFlash2.png");
 AM.queueDownload("./itachi/superSound.mp3");
 
 AM.queueDownload("./itachi/right/jumpUp.png");
@@ -185,6 +191,8 @@ AM.queueDownload("./itachi/right/hit.png");
 AM.queueDownload("./itachi/right/ki.png");
 AM.queueDownload("./itachi/right/super.png");
 AM.queueDownload("./itachi/right/superFlash.png");
+AM.queueDownload("./itachi/right/superFlash1.png");
+AM.queueDownload("./itachi/right/superFlash2.png");
 
 AM.queueDownload("./pain/right/jumpUp.png");
 AM.queueDownload("./pain/right/heavyBoxing.png");
@@ -259,6 +267,34 @@ AM.queueDownload("./ultraman/left/ki.png");
 AM.queueDownload("./ultraman/left/super.png");
 AM.queueDownload("./ultraman/left/superFlash.png");
 
+AM.queueDownload("./nagato/right/jumpUp.png");
+AM.queueDownload("./nagato/right/heavyBoxing.png");
+AM.queueDownload("./nagato/right/lightBoxing.png");
+AM.queueDownload("./nagato/right/goBack.png");
+AM.queueDownload("./nagato/right/goForward.png");
+AM.queueDownload("./nagato/right/wait.png");
+AM.queueDownload("./nagato/right/guard.png");
+AM.queueDownload("./nagato/right/hit.png");
+AM.queueDownload("./nagato/right/ki.png");
+AM.queueDownload("./nagato/right/super.png");
+AM.queueDownload("./nagato/right/superFlash.png");
+AM.queueDownload("./nagato/right/superFlash1.png");
+AM.queueDownload("./nagato/right/superFlash2.png");
+
+AM.queueDownload("./nagato/left/jumpUp.png");
+AM.queueDownload("./nagato/left/heavyBoxing.png");
+AM.queueDownload("./nagato/left/lightBoxing.png");
+AM.queueDownload("./nagato/left/goBack.png");
+AM.queueDownload("./nagato/left/goForward.png");
+AM.queueDownload("./nagato/left/wait.png");
+AM.queueDownload("./nagato/left/guard.png");
+AM.queueDownload("./nagato/left/hit.png");
+AM.queueDownload("./nagato/left/ki.png");
+AM.queueDownload("./nagato/left/super.png");
+AM.queueDownload("./nagato/left/superFlash.png");
+AM.queueDownload("./nagato/left/superFlash1.png");
+AM.queueDownload("./nagato/left/superFlash2.png");
+
 AM.queueDownload("./assets/bg1.jpg");
 AM.queueDownload("./assets/bg2.jpg");
 AM.queueDownload("./assets/bg3.jpg");
@@ -272,6 +308,7 @@ AM.queueDownload("./assets/bgm3.mp3");
 AM.queueDownload("./assets/bgm4.mp3");
 AM.queueDownload("./assets/bgm5.mp3");
 AM.queueDownload("./assets/bgm6.mp3");
+AM.queueDownload("./assets/bgm7.mp3");
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");

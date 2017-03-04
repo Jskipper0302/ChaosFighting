@@ -15,22 +15,24 @@
             window.location.href = 'index.html';
         }
         var music = new Audio("./assets/win.mp3");
-        if(localStorage.getItem("music") == 1){
+        if(localStorage.getItem("music") == 1) {
             music.play();
         }
         var winner = localStorage.getItem("characterNumber");
-        if (winner == 1){
+        if (winner == 1) {
             document.getElementById("winner").setAttribute("src", "assets/godzilla.gif");
-        } else if (winner == 2){
+        } else if (winner == 2) {
             document.getElementById("winner").setAttribute("src", "assets/goku.gif");
-        } else if (winner == 3){
+        } else if (winner == 3) {
             document.getElementById("winner").setAttribute("src", "assets/itachi.gif");
-        } else if (winner == 4){
+        } else if (winner == 4) {
             document.getElementById("winner").setAttribute("src", "assets/pain.gif");
-        } else if (winner == 5){
+        } else if (winner == 5) {
             document.getElementById("winner").setAttribute("src", "assets/piccolo.gif");
-        } else if (winner == 6){
+        } else if (winner == 6) {
             document.getElementById("winner").setAttribute("src", "assets/ultraman.gif");
+        } else if (winner == 7) {
+            document.getElementById("winner").setAttribute("src", "assets/nagato.gif");
         }
 
         var winNum = localStorage.getItem("playerNumber");

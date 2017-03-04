@@ -12,18 +12,20 @@
     <img id = "godzilla" src = "assets/godzilla.gif" style = "width:124px; height:186px;">
     <img id = "goku" src = "assets/goku.gif" style = "width:124px; height:186px;">
     <img id = "itachi" src = "assets/itachi.gif" style = "width:124px; height:186px;">
+    <img id = "pain" src = "assets/pain.gif" style = "width:124px; height:186px;">
     <br>
     <p class = "form">GODZILLA</p>
     <p class = "form">GOKU</p>
     <p class = "form">ITACHI</p>
+    <p class = "form">PAIN</p>
     <br>
-    <img id = "pain" src = "assets/pain.gif" style = "width:124px; height:186px;">
     <img id = "piccolo" src = "assets/piccolo.gif" style = "width:124px; height:186px;">
     <img id = "ultraman" src = "assets/ultraman.gif" style = "width:124px; height:186px;">
+    <img id = "nagato" src = "assets/nagato.gif" style = "width:124px; height:186px;">
     <br>
-    <p class = "form">PAIN</p>
     <p class = "form">PICCOLO</p>
     <p class = "form">ULTRAMAN</p>
+    <p class = "form">NAGATO</p>
     <br>
 
     <button id = "select1" style = "height:60px; width:200px">Player1 Select</button>
@@ -36,14 +38,14 @@
 <script>
     var music = new Audio("./assets/startmusic.mp3");
     music.loop = true;
-    if(localStorage.getItem("music") == 1){
+    if(localStorage.getItem("music") == 1) {
         music.play();
     }
-    function startGame(){
+    function startGame() {
         window.location.href = 'game.html';
     }
-    function musicControl(){
-        if(localStorage.getItem("music") == 1){
+    function musicControl() {
+        if(localStorage.getItem("music") == 1) {
             localStorage.setItem("music", 0);
             music.pause();
         } else {
@@ -57,90 +59,110 @@
     localStorage.setItem("selection2", "3");
     var selected = 0;
     localStorage.setItem("selection2", 0);
-    document.getElementById("godzilla").addEventListener("click", function(){
+    document.getElementById("godzilla").addEventListener("click", function() {
         document.getElementById("godzilla").setAttribute("border", "2");
         document.getElementById("goku").setAttribute("border", "0");
         document.getElementById("itachi").setAttribute("border", "0");
         document.getElementById("pain").setAttribute("border", "0");
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "0");
         selected = 1;
     });
-    document.getElementById("goku").addEventListener("click", function(){
+    document.getElementById("goku").addEventListener("click", function() {
         document.getElementById("godzilla").setAttribute("border", "0");
         document.getElementById("goku").setAttribute("border", "2");
         document.getElementById("itachi").setAttribute("border", "0");
         document.getElementById("pain").setAttribute("border", "0");
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "0");
         selected = 2;
     });
-    document.getElementById("itachi").addEventListener("click", function(){
+    document.getElementById("itachi").addEventListener("click", function() {
         document.getElementById("godzilla").setAttribute("border", "0");
         document.getElementById("goku").setAttribute("border", "0");
         document.getElementById("itachi").setAttribute("border", "2");
         document.getElementById("pain").setAttribute("border", "0");
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "0");
         selected = 3;
     });
-    document.getElementById("pain").addEventListener("click", function(){
+    document.getElementById("pain").addEventListener("click", function() {
         document.getElementById("godzilla").setAttribute("border", "0");
         document.getElementById("goku").setAttribute("border", "0");
         document.getElementById("itachi").setAttribute("border", "0");
         document.getElementById("pain").setAttribute("border", "2");
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "0");
         selected = 4;
     });
-    document.getElementById("piccolo").addEventListener("click", function(){
+    document.getElementById("piccolo").addEventListener("click", function() {
         document.getElementById("godzilla").setAttribute("border", "0");
         document.getElementById("goku").setAttribute("border", "0");
         document.getElementById("itachi").setAttribute("border", "0");
         document.getElementById("pain").setAttribute("border", "0");
         document.getElementById("piccolo").setAttribute("border", "2");
         document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "0");
         selected = 5;
     });
-    document.getElementById("ultraman").addEventListener("click", function(){
+    document.getElementById("ultraman").addEventListener("click", function() {
         document.getElementById("godzilla").setAttribute("border", "0");
         document.getElementById("goku").setAttribute("border", "0");
         document.getElementById("itachi").setAttribute("border", "0");
         document.getElementById("pain").setAttribute("border", "0");
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "2");
+        document.getElementById("nagato").setAttribute("border", "0");
         selected = 6;
     });
-    document.getElementById("select1").addEventListener("click", function(){
-        if (selected === 1){
+    document.getElementById("nagato").addEventListener("click", function() {
+        document.getElementById("godzilla").setAttribute("border", "0");
+        document.getElementById("goku").setAttribute("border", "0");
+        document.getElementById("itachi").setAttribute("border", "0");
+        document.getElementById("pain").setAttribute("border", "0");
+        document.getElementById("piccolo").setAttribute("border", "0");
+        document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "2");
+        selected = 7;
+    });
+    document.getElementById("select1").addEventListener("click", function() {
+        if (selected === 1) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen GODZILLA";
-        } else if (selected === 2){
+        } else if (selected === 2) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen GOKU";
-        } else if (selected === 3){
+        } else if (selected === 3) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen ITACHI";
-        } else if (selected === 4){
+        } else if (selected === 4) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen PAIN";
-        } else if (selected === 5){
+        } else if (selected === 5) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen PICCOLO";
-        } else if (selected === 6){
+        } else if (selected === 6) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen ULTRAMAN";
+        } else if (selected === 7) {
+            document.getElementById("hint1").innerHTML = "Player1 has chosen NATATO";
         }
         localStorage.setItem("selection1", selected);
     });
     document.getElementById("select2").addEventListener("click", function(){
-        if (selected === 1){
+        if (selected === 1) {
             document.getElementById("hint2").innerHTML = "Player2 has chosen GODZILLA";
-        } else if (selected === 2){
+        } else if (selected === 2) {
             document.getElementById("hint2").innerHTML = "Player2 has chosen GOKU";
-        } else if (selected === 3){
+        } else if (selected === 3) {
             document.getElementById("hint2").innerHTML = "Player2 has chosen ITACHI";
-        } else if (selected === 4){
+        } else if (selected === 4) {
             document.getElementById("hint2").innerHTML = "Player2 has chosen PAIN";
-        } else if (selected === 5){
+        } else if (selected === 5) {
             document.getElementById("hint2").innerHTML = "Player2 has chosen PICCOLO";
-        } else if (selected === 6){
+        } else if (selected === 6) {
             document.getElementById("hint2").innerHTML = "Player2 has chosen ULTRAMAN";
-        }
+        } else if (selected === 7) {
+        document.getElementById("hint2").innerHTML = "Player2 has chosen NAGATO";
+    }
         localStorage.setItem("selection2", selected);
     });
     document.getElementById("type").addEventListener("click", function(){

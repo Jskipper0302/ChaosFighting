@@ -19,13 +19,13 @@
             if (e.pageX > 756 && e.pageX < 1164 && e.pageY > 270 && e.pageY < 390 && localStorage.getItem("game") == 0){
                 localStorage.setItem("game", 1);
                 var music = new Audio("./assets/readymusic.mp3");
-                if(localStorage.getItem("music") == 1){
+                if(localStorage.getItem("music") == 1) {
                     music.play();
                 }
             }
         }, false);
         function musicControl(){
-            if(localStorage.getItem("music") == 1){
+            if(localStorage.getItem("music") == 1) {
                 localStorage.setItem("music", 0);
             } else {
                 localStorage.setItem("music", 1);

@@ -46,3 +46,4 @@ Yunhang Jiang, Chenwei Qiu Version 20170302
         4: Pain: Media Speed, Medium damage, Small Range with Invincible
         5. Piccolo: Slow Speed, Medium damage, Large Range
         6. Ultraman: Fast Speed, Low damage, Large Range
+        7. Nagato: Media Speed, Hight damage, Large Range

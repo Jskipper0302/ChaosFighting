@@ -21,24 +21,26 @@ function Character(game, asset, playerNumber, characterNumber) {
     this.ctx = game.ctx;
     this.hitSound = new Audio("./assets/hit.mp3");
     this.sound = new Audio("./godzilla/superSound.mp3");
-    if (this.characterNumber == 0){
+    if (this.characterNumber == 0) {
         this.ai = true;
         var a = Math.random();
-        if (a < 0.16) {
+        if (a < 0.14) {
             this.characterNumber = 1;
-            } else if (a < 0.32) {
+            } else if (a < 0.28) {
             this.characterNumber = 2;
-        } else if (a < 0.48) {
+        } else if (a < 0.42) {
             this.characterNumber = 3;
-        } else if (a < 0.64) {
+        } else if (a < 0.56) {
             this.characterNumber = 4;
-        } else if (a < 0.8) {
+        } else if (a < 0.7) {
             this.characterNumber = 5;
-        } else {
+        } else if (a < 0.84) {
             this.characterNumber = 6;
+        } else {
+            this.characterNumber = 7;
         }
     }
-    if (this.characterNumber == 1){
+    if (this.characterNumber == 1) {
         this.sound = new Audio("./godzilla/superSound.mp3");
         this.width = 65 * 4;
         this.attackRangeL = 16 * 3.8;
@@ -47,7 +49,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.middleAttack = 0.06;
         this.superAttack = 0.2;
         this.guardScale = 2;
-        if (playerNumber == 1){
+        if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./godzilla/right/wait.png"), 70, 63, 1, 0.10, 1, true, 3.8);
             this.goForward = new Animation(asset.getAsset("./godzilla/right/goForward.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.goBack = new Animation(asset.getAsset("./godzilla/right/goBack.png"), 72, 63, 3, 0.25, 3, true, 3.8);
@@ -59,9 +61,11 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./godzilla/right/ki.png"), 70, 65, 2, 0.12, 2, true, 3.7);
             this.super = new Animation(asset.getAsset("./godzilla/right/super.png"), 79, 60, 5, 0.25, 5, false, 4);
             this.flash = new Flash(this.game, asset.getAsset("./godzilla/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./godzilla/right/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./godzilla/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 400;
-        } else{
+        } else {
             this.animation = new Animation(asset.getAsset("./godzilla/left/wait.png"), 70, 63, 1, 0.10, 1, true, 3.8);
             this.goForward = new Animation(asset.getAsset("./godzilla/left/goForward.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.goBack = new Animation(asset.getAsset("./godzilla/left/goBack.png"), 72, 63, 3, 0.25, 3, true, 3.8);
@@ -73,10 +77,12 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./godzilla/left/ki.png"), 70, 65, 2, 0.12, 2, true, 3.7);
             this.super = new Animation(asset.getAsset("./godzilla/left/super.png"), 79, 60, 5, 0.25, 5, false, 4);
             this.flash = new Flash(this.game, asset.getAsset("./godzilla/left/superFlash.png"), 2000, 1000);
-            this.x = 1000;
+            this.flash1 = new Flash(this.game, asset.getAsset("./godzilla/left/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./godzilla/left/superFlash.png"), 2000, 1000);
+            this.x = 1060;
             this.y = 400;
         }
-    } else if (this.characterNumber == 2){
+    } else if (this.characterNumber == 2) {
         this.sound = new Audio("./goku/superSound.mp3");
         this.width = 48 * 3;
         this.attackRangeL = 38 * 3;
@@ -85,7 +91,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.middleAttack = 0.1;
         this.superAttack = 0.14;
         this.guardScale = 2;
-        if (playerNumber == 1){
+        if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./goku/right/wait.png"), 48, 86, 2, 0.10, 2, true, 3);
             this.goForward = new Animation(asset.getAsset("./goku/right/goForward.png"), 76, 79, 1, 0.25, 1, true, 3.2);
             this.goBack = new Animation(asset.getAsset("./goku/right/goBack.png"), 57, 78, 1, 0.25, 1, true, 3.2);
@@ -97,6 +103,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./goku/right/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
             this.super = new Animation(asset.getAsset("./goku/right/super.png"), 53, 77, 13, 0.15, 13, false, 3.3);
             this.flash = new Flash(this.game, asset.getAsset("./goku/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./goku/right/superFlash1.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./goku/right/superFlash2.png"), 2000, 1000);
             this.x = 220;
             this.y = 400;
         } else {
@@ -111,10 +119,13 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./goku/left/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
             this.super = new Animation(asset.getAsset("./goku/left/super.png"), 53, 77, 12, 0.15, 12, false, 3.3);
             this.flash = new Flash(this.game, asset.getAsset("./goku/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./goku/left/superFlash1.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./goku/left/superFlash2.png"), 2000, 1000);
+
             this.x = 1000;
             this.y = 400;
         }
-    } else if (this.characterNumber == 3){
+    } else if (this.characterNumber == 3) {
         this.sound = new Audio("./itachi/superSound.mp3");
         this.width = 29 * 3.5;
         this.attackRangeL = 38 * 3.5;
@@ -123,7 +134,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.middleAttack = 0.1;
         this.superAttack = 0.16;
         this.guardScale = 2;
-        if (playerNumber == 1){
+        if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./itachi/right/wait.png"), 29, 65, 4, 0.10, 4, true, 3.5);
             this.goForward = new Animation(asset.getAsset("./itachi/right/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
             this.goBack = new Animation(asset.getAsset("./itachi/right/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
@@ -135,6 +146,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./itachi/right/ki.png"), 50, 63, 1, 0.12, 1, true, 3.6);
             this.super = new Animation(asset.getAsset("./itachi/right/super.png"), 50, 63, 25, 0.11, 25, false, 3.5);
             this.flash = new Flash(this.game, asset.getAsset("./itachi/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./itachi/right/superFlash1.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./itachi/right/superFlash2.png"), 2000, 1000);
             this.x = 220;
             this.y = 425;
         } else {
@@ -149,11 +162,13 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./itachi/left/ki.png"), 50, 63, 1, 0.12, 1, true, 3.6);
             this.super = new Animation(asset.getAsset("./itachi/left/super.png"), 50, 63, 25, 0.11, 25, false, 3.5);
             this.flash = new Flash(this.game, asset.getAsset("./itachi/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./itachi/left/superFlash1.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./itachi/left/superFlash2.png"), 2000, 1000);
             this.x = 1000;
             this.y = 425;
 
         }
-    } else if (this.characterNumber == 4){
+    } else if (this.characterNumber == 4) {
         this.sound = new Audio("./pain/superSound.mp3");
         this.width = 19 * 5.3;
         this.attackRangeL = 40 * 5.3;
@@ -162,7 +177,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.middleAttack = 0.085;
         this.superAttack = 0.1;
         this.guardScale = 2;
-        if (playerNumber == 1){
+        if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./pain/right/wait.png"), 19, 46, 4, 0.10, 4, true, 5.3);
             this.goForward = new Animation(asset.getAsset("./pain/right/goForward.png"), 36, 45, 3, 0.25, 3, true, 5.3);
             this.goBack = new Animation(asset.getAsset("./pain/right/goBack.png"), 31, 44, 4, 0.25, 4, true, 5.5);
@@ -174,6 +189,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./pain/right/ki.png"), 29, 45, 1, 0.12, 1, true, 5.3);
             this.super = new Animation(asset.getAsset("./pain/right/super.png"), 29, 45, 24, 0.09, 24, false, 5.3);
             this.flash = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./pain/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 410;
         } else {
@@ -188,10 +205,12 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./pain/left/ki.png"), 29, 45, 1, 0.12, 1, true, 5.3);
             this.super = new Animation(asset.getAsset("./pain/left/super.png"), 29, 45, 24, 0.09, 24, false, 5.3);
             this.flash = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./pain/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
             this.y = 410;
         }
-    } else if (this.characterNumber == 5){
+    } else if (this.characterNumber == 5) {
         this.sound = new Audio("./piccolo/superSound.mp3");
         this.width = 105 * 1.7;
         this.attackRangeL = 46 * 1.7;
@@ -200,7 +219,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.middleAttack = 0.08;
         this.superAttack = 0.2;
         this.guardScale = 2;
-        if (playerNumber == 1){
+        if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./piccolo/right/wait.png"), 105, 117, 4, 0.10, 4, true, 1.7);
             this.goForward = new Animation(asset.getAsset("./piccolo/right/goForward.png"), 189, 117, 1, 0.25, 1, true, 1.6);
             this.goBack = new Animation(asset.getAsset("./piccolo/right/goBack.png"), 136, 150, 1, 0.25, 1, true, 1.4);
@@ -212,6 +231,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./piccolo/right/ki.png"), 101, 118, 1, 0.12, 1, true, 1.7);
             this.super = new Animation(asset.getAsset("./piccolo/right/super.png"), 176, 122, 8, 0.4, 8, false, 1.7);
             this.flash = new Flash(this.game, asset.getAsset("./piccolo/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./piccolo/right/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./piccolo/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 445;
         } else {
@@ -226,10 +247,12 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./piccolo/left/ki.png"), 101, 118, 1, 0.12, 1, true, 1.7);
             this.super = new Animation(asset.getAsset("./piccolo/left/super.png"), 176, 122, 8, 0.4, 8, false, 1.7);
             this.flash = new Flash(this.game, asset.getAsset("./piccolo/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./piccolo/left/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./piccolo/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
             this.y = 445;
         }
-    }else if (this.characterNumber == 6){
+    } else if (this.characterNumber == 6) {
         this.sound = new Audio("./ultraman/superSound.mp3");
         this.width = 28 * 5.4;
         this.attackRangeL = 13 * 5.4;
@@ -238,7 +261,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.middleAttack = 0.07;
         this.superAttack = 0.035;
         this.guardScale = 2;
-        if (playerNumber == 1){
+        if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./ultraman/right/wait.png"), 28, 42, 4, 0.50, 4, true, 5.4);
             this.goForward = new Animation(asset.getAsset("./ultraman/right/goForward.png"), 26, 42, 2, 0.25, 2, true, 5.4);
             this.goBack = new Animation(asset.getAsset("./ultraman/right/goBack.png"), 26, 42, 2, 0.25, 2, true, 5.4);
@@ -250,6 +273,8 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./ultraman/right/ki.png"), 29, 42, 1, 0.12, 1, true, 5.4);
             this.super = new Animation(asset.getAsset("./ultraman/right/super.png"), 28, 42, 12, 0.4, 12, false, 5.4);
             this.flash = new Flash(this.game, asset.getAsset("./ultraman/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./ultraman/right/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./ultraman/right/superFlash.png"), 2000, 1000);
             this.x = 220;
             this.y = 420;
         } else {
@@ -264,8 +289,52 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.ki = new Animation(asset.getAsset("./ultraman/left/ki.png"), 29, 42, 1, 0.12, 1, true, 5.4);
             this.super = new Animation(asset.getAsset("./ultraman/left/super.png"), 28, 42, 12, 0.4, 12, false, 5.4);
             this.flash = new Flash(this.game, asset.getAsset("./ultraman/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./ultraman/left/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./ultraman/left/superFlash.png"), 2000, 1000);
             this.x = 1000;
             this.y = 420;
+        }
+    } else if (this.characterNumber == 7) {
+        this.sound = new Audio("./nagato/superSound.mp3");
+        this.width = 34 * 2.9;
+        this.attackRangeL = 48 * 2.9;
+        this.attackRangeM = 70 * 2.9;
+        this.lightAttack = 0.045;
+        this.middleAttack = 0.085;
+        this.superAttack = 0.1;
+        this.guardScale = 2;
+        if (playerNumber == 1) {
+            this.animation = new Animation(asset.getAsset("./nagato/right/wait.png"), 34, 87, 3, 0.10, 3, true, 2.9);
+            this.goForward = new Animation(asset.getAsset("./nagato/right/goForward.png"), 60, 87, 6, 0.25, 6, true, 2.9);
+            this.goBack = new Animation(asset.getAsset("./nagato/right/goBack.png"), 58, 87, 2, 0.25, 2, true, 2.9);
+            this.lightBoxing = new Animation(asset.getAsset("./nagato/right/lightBoxing.png"), 82, 87, 2, 0.15, 2, false, 2.9);
+            this.middleBoxing = new Animation(asset.getAsset("./nagato/right/heavyBoxing.png"), 104, 87, 2, 0.2, 2, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./nagato/right/jumpUp.png"), 53, 68, 1, 0.18, 1, false, 2.9);
+            this.guard = new Animation(asset.getAsset("./nagato/right/guard.png"), 31, 87, 1, 0.12, 1, true, 2.9);
+            this.hit = new Animation(asset.getAsset("./nagato/right/hit.png"), 37, 87, 1, 0.12, 1, true, 2.9);
+            this.ki = new Animation(asset.getAsset("./nagato/right/ki.png"), 32, 87, 1, 0.12, 1, true, 2.9);
+            this.super = new Animation(asset.getAsset("./nagato/right/super.png"), 50, 87, 70, 0.05, 70, false, 2.9);
+            this.flash = new Flash(this.game, asset.getAsset("./nagato/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./nagato/right/superFlash1.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./nagato/right/superFlash2.png"), 2000, 1000);
+            this.x = 220;
+            this.y = 390;
+        } else {
+            this.animation = new Animation(asset.getAsset("./nagato/left/wait.png"), 34, 87, 3, 0.10, 3, true, 2.9);
+            this.goForward = new Animation(asset.getAsset("./nagato/left/goForward.png"), 60, 87, 6, 0.25, 6, true, 2.9);
+            this.goBack = new Animation(asset.getAsset("./nagato/left/goBack.png"), 58, 87, 2, 0.25, 2, true, 2.9);
+            this.lightBoxing = new Animation(asset.getAsset("./nagato/left/lightBoxing.png"), 82, 87, 2, 0.15, 2, false, 2.9);
+            this.middleBoxing = new Animation(asset.getAsset("./nagato/left/heavyBoxing.png"), 104, 87, 2, 0.2, 2, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./nagato/left/jumpUp.png"), 53, 68, 1, 0.18, 1, false, 2.9);
+            this.guard = new Animation(asset.getAsset("./nagato/left/guard.png"), 31, 87, 1, 0.12, 1, true, 2.9);
+            this.hit = new Animation(asset.getAsset("./nagato/left/hit.png"), 37, 87, 1, 0.12, 1, true, 2.9);
+            this.ki = new Animation(asset.getAsset("./nagato/left/ki.png"), 32, 87, 1, 0.12, 1, true, 2.9);
+            this.super = new Animation(asset.getAsset("./nagato/left/super.png"), 50, 87, 70, 0.05, 70, false, 2.9);
+            this.flash = new Flash(this.game, asset.getAsset("./nagato/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./nagato/left/superFlash1.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./nagato/left/superFlash2.png"), 2000, 1000);
+            this.x = 1000;
+            this.y = 390;
         }
     }
 
@@ -274,24 +343,28 @@ function Character(game, asset, playerNumber, characterNumber) {
     this.point2 = new Point(this.game, asset.getAsset("./assets/point.png"), 0, 620);
     this.point3 = new Point(this.game, asset.getAsset("./assets/point.png"), 0, 620);
     this.game.addEntity(this.flash);
+    this.game.addEntity(this.flash1);
+    this.game.addEntity(this.flash2);
     this.game.addEntity(this.point1);
     this.game.addEntity(this.point2);
     this.game.addEntity(this.point3);
     this.sound.loop = false;
     this.hitSound.loop = false;
-    if (this.playerNumber == 2){
-        if (this.characterNumber == 1){
+    if (this.playerNumber == 2) {
+        if (this.characterNumber == 1) {
             this.bg = new Audio("./assets/bgm1.mp3");
-        } else if (this.characterNumber == 2){
+        } else if (this.characterNumber == 2) {
             this.bg = new Audio("./assets/bgm2.mp3");
-        } else if (this.characterNumber == 3){
+        } else if (this.characterNumber == 3) {
             this.bg = new Audio("./assets/bgm3.mp3");
-        } else if (this.characterNumber == 4){
+        } else if (this.characterNumber == 4) {
             this.bg = new Audio("./assets/bgm4.mp3");
-        } else if (this.characterNumber == 5){
+        } else if (this.characterNumber == 5) {
             this.bg = new Audio("./assets/bgm5.mp3");
-        } else {
+        } else if (this.characterNumber == 6) {
             this.bg = new Audio("./assets/bgm6.mp3");
+        }else {
+            this.bg = new Audio("./assets/bgm7.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
@@ -319,6 +392,8 @@ Character.prototype.draw = function () {
             n = 1.7;
         } else if (this.characterNumber == 6) {
             n = 5.4;
+        } else if (this.characterNumber == 7) {
+            n = 2.9;
         }
     }
     if (this.h){
@@ -464,7 +539,7 @@ Character.prototype.update = function () {
             this.power += 1.5;
         }
         if (this.sup) {
-            if (this.super.elapsedTime < 0.1){
+            if (this.super.elapsedTime < 0.1) {
                 this.sound.play();
             }
             if (this.super.isDone() || this.h) {
@@ -475,27 +550,65 @@ Character.prototype.update = function () {
                 this.flash.y = 1000;
             }
             //change Flash x and y
-            if (this.characterNumber == 1){
-                if (this.super.currentFrame() > 0){
-                    if (this.playerNumber == 1){
-                        this.flash.x = this.x + 310 ;
+            if (this.characterNumber == 1) {
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.x + 310;
                         this.flash.y = this.y + 20;
                     } else {
-                        this.flash.x = this.x - 470 ;
+                        this.flash.x = this.x - 470;
                         this.flash.y = this.y + 20;
                     }
                 }
-            } else if (this.characterNumber == 2){
-                if (this.super.currentFrame() > 2){
-                    if (this.playerNumber == 1){
-                        this.flash.x = this.x + 150 ;
+            } else if (this.characterNumber == 2) {
+                if (this.super.currentFrame() > 2) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.x + 150;
                         this.flash.y = this.y;
                     } else {
-                        this.flash.x = this.x - 1360 ;
+                        this.flash.x = this.x - 1360;
                         this.flash.y = this.y;
                     }
                 }
-            } else if (this.characterNumber == 3){
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        if (this.super.currentFrame() % 2 == 0 && this.super.currentFrame() !=  12) {
+                            this.flash1.x = this.x + 100;
+                            this.flash1.y = this.y + 100;
+                        } else {
+                            this.flash1.x = 2000;
+                            this.flash1.y = 2000;
+                        }
+                    } else {
+                        if (this.super.currentFrame() % 2 == 0) {
+                            this.flash1.x = this.x - 150;
+                            this.flash1.y = this.y + 100;
+                        } else {
+                            this.flash1.x = 2000;
+                            this.flash1.y = 2000;
+                        }
+                    }
+                }
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        if (this.super.currentFrame() % 2 == 1) {
+                            this.flash2.x = this.x + 10;
+                            this.flash2.y = this.y + 20;
+                        } else {
+                            this.flash2.x = 2000;
+                            this.flash2.y = 2000;
+                        }
+                    } else {
+                        if (this.super.currentFrame() % 2 == 1 && this.super.currentFrame() != 11) {
+                            this.flash2.x = this.x - 40;
+                            this.flash2.y = this.y + 20;
+                        } else {
+                            this.flash2.x = 2000;
+                            this.flash2.y = 2000;
+                        }
+                    }
+                }
+            } else if (this.characterNumber == 3) {
                 if (this.super.currentFrame() > 8) {
                     if (this.playerNumber == 1) {
                         this.flash.x = this.x + 150;
@@ -505,34 +618,145 @@ Character.prototype.update = function () {
                         this.flash.y = this.y - 50;
                     }
                 }
-            } else if (this.characterNumber == 4){
-                if (this.super.currentFrame() > 2){
-                    if (this.playerNumber == 1){
-                        this.flash.x = this.x - 170 ;
+                if (this.super.currentFrame() > 8) {
+                    if (this.playerNumber == 1) {
+                        if (this.super.currentFrame() % 2 == 0 && this.super.currentFrame() !=  24) {
+                            this.flash1.x = this.x + 250;
+                            this.flash1.y = this.y - 20;
+                        } else {
+                            this.flash1.x = 2000;
+                            this.flash1.y = 2000;
+                        }
+                    } else {
+                        if (this.super.currentFrame() % 2 == 0 && this.super.currentFrame() !=  24) {
+                            this.flash1.x = this.x - 420;
+                            this.flash1.y = this.y - 20;
+                        } else {
+                            this.flash1.x = 2000;
+                            this.flash1.y = 2000;
+                        }
+                    }
+                }
+                if (this.super.currentFrame() > 8) {
+                    if (this.playerNumber == 1) {
+                        if (this.super.currentFrame() % 2 == 1 && this.super.currentFrame() !=  25) {
+                            this.flash2.x = this.x + 420;
+                            this.flash2.y = this.y - 20;
+                        } else {
+                            this.flash2.x = 2000;
+                            this.flash2.y = 2000;
+                        }
+                    } else {
+                        if (this.super.currentFrame() % 2 == 1 && this.super.currentFrame() !=  23) {
+                            this.flash2.x = this.x - 480;
+                            this.flash2.y = this.y - 20;
+                        } else {
+                            this.flash2.x = 2000;
+                            this.flash2.y = 2000;
+                        }
+                    }
+                }
+            } else if (this.characterNumber == 4) {
+                if (this.super.currentFrame() > 2) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.x - 170;
                         this.flash.y = this.y - 125;
                     } else {
                         this.flash.x = this.x - 270;
                         this.flash.y = this.y - 125;
                     }
                 }
-            } else if (this.characterNumber == 5){
-                if (this.super.currentFrame() > 3){
-                    if (this.playerNumber == 1){
-                        this.flash.x = this.x + 280 ;
+            } else if (this.characterNumber == 5) {
+                if (this.super.currentFrame() > 3) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.x + 280;
                         this.flash.y = this.y  + 28;
                     } else {
                         this.flash.x = this.x - 2070;
                         this.flash.y = this.y + 28;
                     }
                 }
-            } else if (this.characterNumber == 6){
-                if (this.super.currentFrame() > 0){
-                    if (this.playerNumber == 1){
+            } else if (this.characterNumber == 6) {
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
                         this.flash.x = this.x + 150;
                         this.flash.y = this.y;
                     } else {
                         this.flash.x = this.x - 1700;
                         this.flash.y = this.y;
+                    }
+                }
+            } else if (this.characterNumber == 7) {
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.x - 150;
+                        this.flash.y = this.y - 450;
+                    } else {
+                        this.flash.x = this.x - 280;
+                        this.flash.y = this.y - 450;
+                    }
+                }
+                if (this.super.currentFrame() > 20) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.x - 390 + this.super.currentFrame() * 12;
+                        this.flash.y = this.y - 550 + this.super.currentFrame() * 5;
+                    } else {
+                        this.flash.x = this.x - 40 - this.super.currentFrame() * 12;
+                        this.flash.y = this.y - 550 + this.super.currentFrame() * 5;
+                    }
+                }
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        if (this.super.currentFrame() == 2 ||
+                            this.super.currentFrame() == 4 || this.super.currentFrame() == 6 ||
+                            this.super.currentFrame() == 8 || this.super.currentFrame() == 10 ||
+                            this.super.currentFrame() == 12 || this.super.currentFrame() == 14 ||
+                            this.super.currentFrame() == 16 || this.super.currentFrame() == 18) {
+                            this.flash1.x = this.x - 130;
+                            this.flash1.y = this.y + 150;
+                        } else {
+                            this.flash1.x = 2000;
+                            this.flash1.y = 2000;
+                        }
+                    } else {
+                        if (this.super.currentFrame() == 2 ||
+                            this.super.currentFrame() == 4 || this.super.currentFrame() == 6 ||
+                            this.super.currentFrame() == 8 || this.super.currentFrame() == 10 ||
+                            this.super.currentFrame() == 12 || this.super.currentFrame() == 14 ||
+                            this.super.currentFrame() == 16 || this.super.currentFrame() == 18) {
+                            this.flash1.x = this.x - 270;
+                            this.flash1.y = this.y + 150;
+                        } else {
+                            this.flash1.x = 2000;
+                            this.flash1.y = 2000;
+                        }
+                    }
+                }
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        if (this.super.currentFrame() == 1 || this.super.currentFrame() == 3 ||
+                            this.super.currentFrame() == 5 || this.super.currentFrame() == 7 ||
+                            this.super.currentFrame() == 9 || this.super.currentFrame() == 11 ||
+                            this.super.currentFrame() == 13 || this.super.currentFrame() == 15 ||
+                            this.super.currentFrame() == 17 || this.super.currentFrame() == 19) {
+                            this.flash2.x = this.x - 120;
+                            this.flash2.y = this.y + 200;
+                        } else {
+                            this.flash2.x = 2000;
+                            this.flash2.y = 2000;
+                        }
+                    } else {
+                        if (this.super.currentFrame() == 1 || this.super.currentFrame() == 3 ||
+                            this.super.currentFrame() == 5 || this.super.currentFrame() == 7 ||
+                            this.super.currentFrame() == 9 || this.super.currentFrame() == 11 ||
+                            this.super.currentFrame() == 13 || this.super.currentFrame() == 15 ||
+                            this.super.currentFrame() == 17 || this.super.currentFrame() == 19) {
+                            this.flash2.x = this.x - 260;
+                            this.flash2.y = this.y + 200;
+                        } else {
+                            this.flash2.x = 2000;
+                            this.flash2.y = 2000;
+                        }
                     }
                 }
             }
@@ -736,6 +960,9 @@ Character.prototype.update = function () {
                                 if (this.characterNumber == 6) {
                                     this.game.num5 = true;
                                 }
+                                if (this.characterNumber == 7) {
+                                    this.game.num5 = true;
+                                }
                             }
                         }  else {
                             if (this.power >= 100 && this.random < 0.3) {
@@ -755,6 +982,9 @@ Character.prototype.update = function () {
                                     this.game.num5 = true;
                                 }
                                 if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 6) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 7) {
                                     this.game.num5 = true;
                                 }
                             } else if (this.random < 0.7){
