@@ -24,20 +24,22 @@ function Character(game, asset, playerNumber, characterNumber) {
     if (this.characterNumber == 0) {
         this.ai = true;
         var a = Math.random();
-        if (a < 0.14) {
+        if (a < 0.125) {
             this.characterNumber = 1;
-            } else if (a < 0.28) {
+            } else if (a < 0.25) {
             this.characterNumber = 2;
-        } else if (a < 0.42) {
+        } else if (a < 0.375) {
             this.characterNumber = 3;
-        } else if (a < 0.56) {
+        } else if (a < 0.5) {
             this.characterNumber = 4;
-        } else if (a < 0.7) {
+        } else if (a < 0.625) {
             this.characterNumber = 5;
-        } else if (a < 0.84) {
+        } else if (a < 0.75) {
             this.characterNumber = 6;
-        } else {
+        } else if (a < 0.875) {
             this.characterNumber = 7;
+        } else {
+            this.characterNumber = 8;
         }
     }
     if (this.characterNumber == 1) {
@@ -336,6 +338,48 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.x = 1000;
             this.y = 390;
         }
+    } else if (this.characterNumber == 8) {
+        this.sound = new Audio("./danzo/superSound.mp3");
+        this.width = 28 * 2.9;
+        this.attackRangeL = 41 * 2.9;
+        this.attackRangeM = 89 * 2.9;
+        this.lightAttack = 0.042;
+        this.middleAttack = 0.07;
+        this.superAttack = 0.08;
+        this.guardScale = 2;
+        if (playerNumber == 1) {
+            this.animation = new Animation(asset.getAsset("./danzo/right/wait.png"), 28, 82, 4, 0.10, 4, true, 2.9);
+            this.goForward = new Animation(asset.getAsset("./danzo/right/goForward.png"), 65, 82, 6, 0.25, 6, true, 2.9);
+            this.goBack = new Animation(asset.getAsset("./danzo/right/goBack.png"), 53, 82, 2, 0.25, 2, true, 2.9);
+            this.lightBoxing = new Animation(asset.getAsset("./danzo/right/lightBoxing.png"), 69, 82, 2, 0.15, 2, false, 2.9);
+            this.middleBoxing = new Animation(asset.getAsset("./danzo/right/heavyBoxing.png"), 117, 82, 2, 0.25, 2, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./danzo/right/jumpUp.png"), 43, 75, 1, 0.18, 1, false, 2.9);
+            this.guard = new Animation(asset.getAsset("./danzo/right/guard.png"), 38, 82, 1, 0.12, 1, true, 2.9);
+            this.hit = new Animation(asset.getAsset("./danzo/right/hit.png"), 55, 82, 1, 0.12, 1, true, 2.9);
+            this.ki = new Animation(asset.getAsset("./danzo/right/ki.png"), 45, 82, 1, 0.12, 1, true, 2.9);
+            this.super = new Animation(asset.getAsset("./danzo/right/super.png"), 27, 82, 10, 0.2, 10, false, 2.9);
+            this.flash = new Flash(this.game, asset.getAsset("./danzo/right/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./danzo/right/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./danzo/right/superFlash.png"), 2000, 1000);
+            this.x = 220;
+            this.y = 400;
+        } else {
+            this.animation = new Animation(asset.getAsset("./danzo/left/wait.png"), 28, 82, 4, 0.10, 4, true, 2.9);
+            this.goForward = new Animation(asset.getAsset("./danzo/left/goForward.png"), 65, 82, 6, 0.25, 6, true, 2.9);
+            this.goBack = new Animation(asset.getAsset("./danzo/left/goBack.png"), 53, 82, 2, 0.25, 2, true, 2.9);
+            this.lightBoxing = new Animation(asset.getAsset("./danzo/left/lightBoxing.png"), 69, 82, 2, 0.15, 2, false, 2.9);
+            this.middleBoxing = new Animation(asset.getAsset("./danzo/left/heavyBoxing.png"), 117, 82, 2, 0.25, 2, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./danzo/left/jumpUp.png"), 43, 75, 1, 0.18, 1, false, 2.9);
+            this.guard = new Animation(asset.getAsset("./danzo/left/guard.png"), 38, 82, 1, 0.12, 1, true, 2.9);
+            this.hit = new Animation(asset.getAsset("./danzo/left/hit.png"), 55, 82, 1, 0.12, 1, true, 2.9);
+            this.ki = new Animation(asset.getAsset("./danzo/left/ki.png"), 45, 82, 1, 0.12, 1, true, 2.9);
+            this.super = new Animation(asset.getAsset("./danzo/left/super.png"), 27, 82, 10, 0.2, 10, false, 2.9);
+            this.flash = new Flash(this.game, asset.getAsset("./danzo/left/superFlash.png"), 2000, 1000);
+            this.flash1 = new Flash(this.game, asset.getAsset("./danzo/left/superFlash.png"), 2000, 1000);
+            this.flash2 = new Flash(this.game, asset.getAsset("./danzo/left/superFlash.png"), 2000, 1000);
+            this.x = 1000;
+            this.y = 400;
+        }
     }
 
     this.originalY = this.y;
@@ -363,8 +407,10 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.bg = new Audio("./assets/bgm5.mp3");
         } else if (this.characterNumber == 6) {
             this.bg = new Audio("./assets/bgm6.mp3");
-        }else {
+        } else if (this.characterNumber == 7) {
             this.bg = new Audio("./assets/bgm7.mp3");
+        } else {
+            this.bg = new Audio("./assets/bgm8.mp3");
         }
         this.bg.loop = true;
         this.bg.play();
@@ -393,6 +439,8 @@ Character.prototype.draw = function () {
         } else if (this.characterNumber == 6) {
             n = 5.4;
         } else if (this.characterNumber == 7) {
+            n = 2.9;
+        } else if (this.characterNumber == 8) {
             n = 2.9;
         }
     }
@@ -759,6 +807,19 @@ Character.prototype.update = function () {
                         }
                     }
                 }
+            } else if (this.characterNumber == 8) {
+                if (this.super.currentFrame() > 0) {
+                    if (this.playerNumber == 1) {
+                        this.flash.x = this.opponent.x - 280;
+                        this.flash.y = this.opponent.y - 150;
+                    } else {
+                        this.flash.x = this.opponent.x - 150;
+                        this.flash.y = this.opponent.y - 150;
+                    }
+                } else {
+                    this.flash.x = 2000;
+                    this.flash.y = 2000;
+                }
             }
         }
         if (this.lightB) {
@@ -842,8 +903,8 @@ Character.prototype.update = function () {
                 }
             }
 
-        }else if (this.flash.x != 2000){
-            if (this.playerNumber == 1){
+        } else if (this.flash.x != 2000) {
+            if (this.playerNumber == 1) {
                 if (this.opponent.x - this.flash.x - this.flash.spritesheet.width * 2 - this.opponent.width < 0 && Math.abs(this.y - this.opponent.y) < 150) {
                     if (this.opponent.characterNumber != 4 || !this.opponent.sup) {
                         if (this.opponent.g) {
@@ -913,10 +974,10 @@ Character.prototype.update = function () {
             this.game.up = false;
 
             if (this.opponent.sup){
-                if (this.random > 0.5 && this.characterNumber != 4){
+                if (this.random > 0.5 && this.characterNumber != 4 && this.characterNumber != 8){
                     this.game.num4 = true;
                 }
-                if (this.characterNumber == 4) {
+                if (this.characterNumber == 4 || this.characterNumber == 8) {
                     this.game.num5 = true;
                 }
             } else {
@@ -963,6 +1024,9 @@ Character.prototype.update = function () {
                                 if (this.characterNumber == 7) {
                                     this.game.num5 = true;
                                 }
+                                if (this.characterNumber == 8 && Math.abs(this.x - this.opponent.x) < 2000) {
+                                    this.game.num5 = true;
+                                }
                             }
                         }  else {
                             if (this.power >= 100 && this.random < 0.3) {
@@ -985,6 +1049,9 @@ Character.prototype.update = function () {
                                     this.game.num5 = true;
                                 }
                                 if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 7) {
+                                    this.game.num5 = true;
+                                }
+                                if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 8) {
                                     this.game.num5 = true;
                                 }
                             } else if (this.random < 0.7){

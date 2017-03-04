@@ -230,6 +230,7 @@ AM.queueDownload("./piccolo/right/hit.png");
 AM.queueDownload("./piccolo/right/ki.png");
 AM.queueDownload("./piccolo/right/super.png");
 AM.queueDownload("./piccolo/right/superFlash.png");
+AM.queueDownload("./piccolo/superSound.mp3");
 
 AM.queueDownload("./piccolo/left/jumpUp.png");
 AM.queueDownload("./piccolo/left/heavyBoxing.png");
@@ -254,6 +255,7 @@ AM.queueDownload("./ultraman/right/hit.png");
 AM.queueDownload("./ultraman/right/ki.png");
 AM.queueDownload("./ultraman/right/super.png");
 AM.queueDownload("./ultraman/right/superFlash.png");
+AM.queueDownload("./ultraman/superSound.mp3");
 
 AM.queueDownload("./ultraman/left/jumpUp.png");
 AM.queueDownload("./ultraman/left/heavyBoxing.png");
@@ -280,6 +282,7 @@ AM.queueDownload("./nagato/right/super.png");
 AM.queueDownload("./nagato/right/superFlash.png");
 AM.queueDownload("./nagato/right/superFlash1.png");
 AM.queueDownload("./nagato/right/superFlash2.png");
+AM.queueDownload("./nagato/superSound.mp3");
 
 AM.queueDownload("./nagato/left/jumpUp.png");
 AM.queueDownload("./nagato/left/heavyBoxing.png");
@@ -295,6 +298,30 @@ AM.queueDownload("./nagato/left/superFlash.png");
 AM.queueDownload("./nagato/left/superFlash1.png");
 AM.queueDownload("./nagato/left/superFlash2.png");
 
+AM.queueDownload("./danzo/right/jumpUp.png");
+AM.queueDownload("./danzo/right/heavyBoxing.png");
+AM.queueDownload("./danzo/right/lightBoxing.png");
+AM.queueDownload("./danzo/right/goBack.png");
+AM.queueDownload("./danzo/right/goForward.png");
+AM.queueDownload("./danzo/right/wait.png");
+AM.queueDownload("./danzo/right/guard.png");
+AM.queueDownload("./danzo/right/hit.png");
+AM.queueDownload("./danzo/right/ki.png");
+AM.queueDownload("./danzo/right/super.png");
+AM.queueDownload("./danzo/right/superFlash.png");
+
+AM.queueDownload("./danzo/left/jumpUp.png");
+AM.queueDownload("./danzo/left/heavyBoxing.png");
+AM.queueDownload("./danzo/left/lightBoxing.png");
+AM.queueDownload("./danzo/left/goBack.png");
+AM.queueDownload("./danzo/left/goForward.png");
+AM.queueDownload("./danzo/left/wait.png");
+AM.queueDownload("./danzo/left/guard.png");
+AM.queueDownload("./danzo/left/hit.png");
+AM.queueDownload("./danzo/left/ki.png");
+AM.queueDownload("./danzo/left/super.png");
+AM.queueDownload("./danzo/left/superFlash.png");
+
 AM.queueDownload("./assets/bg1.jpg");
 AM.queueDownload("./assets/bg2.jpg");
 AM.queueDownload("./assets/bg3.jpg");
@@ -309,6 +336,7 @@ AM.queueDownload("./assets/bgm4.mp3");
 AM.queueDownload("./assets/bgm5.mp3");
 AM.queueDownload("./assets/bgm6.mp3");
 AM.queueDownload("./assets/bgm7.mp3");
+AM.queueDownload("./assets/bgm8.mp3");
 
 AM.downloadAll(function () {
     var canvas = document.getElementById("gameWorld");

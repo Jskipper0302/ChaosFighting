@@ -22,10 +22,12 @@
     <img id = "piccolo" src = "assets/piccolo.gif" style = "width:124px; height:186px;">
     <img id = "ultraman" src = "assets/ultraman.gif" style = "width:124px; height:186px;">
     <img id = "nagato" src = "assets/nagato.gif" style = "width:124px; height:186px;">
+    <img id = "danzo" src = "assets/danzo.gif" style = "width:124px; height:186px;">
     <br>
     <p class = "form">PICCOLO</p>
     <p class = "form">ULTRAMAN</p>
     <p class = "form">NAGATO</p>
+    <p class = "form">DANZO</p>
     <br>
 
     <button id = "select1" style = "height:60px; width:200px">Player1 Select</button>
@@ -67,6 +69,7 @@
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
         document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 1;
     });
     document.getElementById("goku").addEventListener("click", function() {
@@ -77,6 +80,7 @@
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
         document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 2;
     });
     document.getElementById("itachi").addEventListener("click", function() {
@@ -87,6 +91,7 @@
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
         document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 3;
     });
     document.getElementById("pain").addEventListener("click", function() {
@@ -97,6 +102,7 @@
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
         document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 4;
     });
     document.getElementById("piccolo").addEventListener("click", function() {
@@ -107,6 +113,7 @@
         document.getElementById("piccolo").setAttribute("border", "2");
         document.getElementById("ultraman").setAttribute("border", "0");
         document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 5;
     });
     document.getElementById("ultraman").addEventListener("click", function() {
@@ -117,6 +124,7 @@
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "2");
         document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 6;
     });
     document.getElementById("nagato").addEventListener("click", function() {
@@ -127,7 +135,19 @@
         document.getElementById("piccolo").setAttribute("border", "0");
         document.getElementById("ultraman").setAttribute("border", "0");
         document.getElementById("nagato").setAttribute("border", "2");
+        document.getElementById("danzo").setAttribute("border", "0");
         selected = 7;
+    });
+    document.getElementById("danzo").addEventListener("click", function() {
+        document.getElementById("godzilla").setAttribute("border", "0");
+        document.getElementById("goku").setAttribute("border", "0");
+        document.getElementById("itachi").setAttribute("border", "0");
+        document.getElementById("pain").setAttribute("border", "0");
+        document.getElementById("piccolo").setAttribute("border", "0");
+        document.getElementById("ultraman").setAttribute("border", "0");
+        document.getElementById("nagato").setAttribute("border", "0");
+        document.getElementById("danzo").setAttribute("border", "2");
+        selected = 8;
     });
     document.getElementById("select1").addEventListener("click", function() {
         if (selected === 1) {
@@ -144,6 +164,8 @@
             document.getElementById("hint1").innerHTML = "Player1 has chosen ULTRAMAN";
         } else if (selected === 7) {
             document.getElementById("hint1").innerHTML = "Player1 has chosen NATATO";
+        } else if (selected === 8) {
+            document.getElementById("hint1").innerHTML = "Player1 has chosen DANZO";
         }
         localStorage.setItem("selection1", selected);
     });
@@ -162,7 +184,9 @@
             document.getElementById("hint2").innerHTML = "Player2 has chosen ULTRAMAN";
         } else if (selected === 7) {
         document.getElementById("hint2").innerHTML = "Player2 has chosen NAGATO";
-    }
+        } else if (selected === 8) {
+            document.getElementById("hint2").innerHTML = "Player2 has chosen DANZO";
+        }
         localStorage.setItem("selection2", selected);
     });
     document.getElementById("type").addEventListener("click", function(){
