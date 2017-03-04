@@ -344,7 +344,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.attackRangeL = 41 * 2.9;
         this.attackRangeM = 89 * 2.9;
         this.lightAttack = 0.042;
-        this.middleAttack = 0.07;
+        this.middleAttack = 0.06;
         this.superAttack = 0.1;
         this.guardScale = 2;
         if (playerNumber == 1) {
