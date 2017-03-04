@@ -345,7 +345,7 @@ function Character(game, asset, playerNumber, characterNumber) {
         this.attackRangeM = 89 * 2.9;
         this.lightAttack = 0.042;
         this.middleAttack = 0.07;
-        this.superAttack = 0.08;
+        this.superAttack = 0.1;
         this.guardScale = 2;
         if (playerNumber == 1) {
             this.animation = new Animation(asset.getAsset("./danzo/right/wait.png"), 28, 82, 4, 0.10, 4, true, 2.9);
@@ -933,8 +933,8 @@ Character.prototype.update = function () {
             this.opponent.hitSound.currentTime = 0;
         }
 
-        if (this.power >= 300 ){
-            if (this.playerNumber == 1){
+        if (this.power >= 300 ) {
+            if (this.playerNumber == 1) {
                 this.point1.x = 160;
             } else {
                 this.point1.x = 1020;
@@ -945,7 +945,7 @@ Character.prototype.update = function () {
             this.point1.y = 720;
         }
         if (this.power >= 200 ){
-            if (this.playerNumber == 1){
+            if (this.playerNumber == 1) {
                 this.point2.x = 100;
             } else {
                 this.point2.x = 1080;
@@ -956,7 +956,7 @@ Character.prototype.update = function () {
             this.point2.y = 720;
         }
         if (this.power >=100){
-            if (this.playerNumber == 1){
+            if (this.playerNumber == 1) {
                 this.point3.x = 40;
             } else {
                 this.point3.x = 1140;
@@ -967,38 +967,38 @@ Character.prototype.update = function () {
             this.point3.y = 720;
         }
 
-        if (this.ai){
+        if (this.ai) {
             this.game.num1 = false;
             this.game.num2 = false;
             this.game.num5 = false;
             this.game.up = false;
 
-            if (this.opponent.sup){
-                if (this.random > 0.5 && this.characterNumber != 4 && this.characterNumber != 8){
+            if (this.opponent.sup) {
+                if (this.random > 0.5 && this.characterNumber != 4) {
                     this.game.num4 = true;
                 }
-                if (this.characterNumber == 4 || this.characterNumber == 8) {
+                if (this.characterNumber == 4) {
                     this.game.num5 = true;
                 }
             } else {
                 this.game.num4 = false;
-                if (this.count <= 15){
+                if (this.count <= 15) {
                     this.count++;
-                    if (this.count == 15){
+                    if (this.count == 15) {
                         this.count = 0;
                         this.game.left = false;
                         this.game.right = false;
                         this.game.down = false;
                         this.game.num4 = false;
                         this.random = Math.random();
-                        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL){
-                            if (this.random < 0.35){
+                        if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL) {
+                            if (this.random < 0.35) {
                                 this.game.num1 = true;
-                            } else if (this.random < 0.7){
+                            } else if (this.random < 0.7) {
                                 this.game.num2 = true;
-                            } else if (this.random < 0.75){
+                            } else if (this.random < 0.75) {
                                 this.game.right = true;
-                            } else if (this.random < 0.8){
+                            } else if (this.random < 0.8) {
                                 this.game.num4 = true;
                             } else if (this.random < 0.85){
                                 this.game.up = true;
@@ -1054,9 +1054,9 @@ Character.prototype.update = function () {
                                 if (Math.abs(this.x - this.opponent.x) < 2000 && this.characterNumber == 8) {
                                     this.game.num5 = true;
                                 }
-                            } else if (this.random < 0.7){
+                            } else if (this.random < 0.7) {
                                 this.game.left = true;
-                            } else if (this.power < 300){
+                            } else if (this.power < 300) {
                                 this.game.down = true;
                             }
                         }
@@ -1065,8 +1065,8 @@ Character.prototype.update = function () {
             }
         }
 
-        if (this.healthPoint < 0 || this.opponent.healthPoint < 0){
-            if (this.opponent.healthPoint < 0){
+        if (this.healthPoint < 0 || this.opponent.healthPoint < 0) {
+            if (this.opponent.healthPoint < 0) {
                 localStorage.setItem("playerNumber", this.playerNumber);
                 localStorage.setItem("characterNumber", this.characterNumber);
             } else {
