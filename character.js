@@ -57,7 +57,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./godzilla/right/goBack.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.lightBoxing = new Animation(asset.getAsset("./godzilla/right/lightBoxing.png"), 84, 62, 2, 0.2, 2, false, 3.8);
             this.middleBoxing = new Animation(asset.getAsset("./godzilla/right/heavyBoxing.png"), 77, 63, 2, 0.4, 2, false, 3.8 );
-            this.jumpUp = new Animation(asset.getAsset("./godzilla/right/jumpUp.png"), 70, 65, 2, 0.18, 2, false, 3.8);
+            this.jumpUp = new Animation(asset.getAsset("./godzilla/right/jumpUp.png"), 70, 65, 2, 0.225, 2, false, 3.8);
             this.guard = new Animation(asset.getAsset("./godzilla/right/guard.png"), 73, 47, 1, 0.12, 1, true, 5);
             this.hit = new Animation(asset.getAsset("./godzilla/right/hit.png"), 60, 64, 1, 0.12, 1, true, 3.8);
             this.ki = new Animation(asset.getAsset("./godzilla/right/ki.png"), 70, 65, 2, 0.12, 2, true, 3.7);
@@ -73,7 +73,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./godzilla/left/goBack.png"), 72, 63, 3, 0.25, 3, true, 3.8);
             this.lightBoxing = new Animation(asset.getAsset("./godzilla/left/lightBoxing.png"), 84, 62, 2, 0.2, 2, false, 3.8);
             this.middleBoxing = new Animation(asset.getAsset("./godzilla/left/heavyBoxing.png"), 77, 63, 2, 0.4, 2, false, 3.8);
-            this.jumpUp = new Animation(asset.getAsset("./godzilla/left/jumpUp.png"), 70, 65, 2, 0.18, 2, false, 3.8);
+            this.jumpUp = new Animation(asset.getAsset("./godzilla/left/jumpUp.png"), 70, 65, 2, 0.225, 2, false, 3.8);
             this.guard = new Animation(asset.getAsset("./godzilla/left/guard.png"), 73, 47, 1, 0.12, 1, true, 5);
             this.hit = new Animation(asset.getAsset("./godzilla/left/hit.png"), 60, 64, 1, 0.12, 1, true, 3.8);
             this.ki = new Animation(asset.getAsset("./godzilla/left/ki.png"), 70, 65, 2, 0.12, 2, true, 3.7);
@@ -99,7 +99,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./goku/right/goBack.png"), 57, 78, 1, 0.25, 1, true, 3.2);
             this.lightBoxing = new Animation(asset.getAsset("./goku/right/lightBoxing.png"), 87, 78, 2, 0.1, 2, false, 3.2);
             this.middleBoxing = new Animation(asset.getAsset("./goku/right/heavyBoxing.png"), 80, 89, 2, 0.15, 2, false, 2.9);
-            this.jumpUp = new Animation(asset.getAsset("./goku/right/jumpUp.png"), 40, 91, 3, 0.18, 3, false, 3);
+            this.jumpUp = new Animation(asset.getAsset("./goku/right/jumpUp.png"), 40, 91, 3, 0.15, 3, false, 3);
             this.guard = new Animation(asset.getAsset("./goku/right/guard.png"), 37, 88, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./goku/right/hit.png"), 56, 91, 1, 0.12, 1, true, 2.8);
             this.ki = new Animation(asset.getAsset("./goku/right/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
@@ -115,7 +115,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./goku/left/goBack.png"), 57, 78, 1, 0.25, 1, true, 3.2);
             this.lightBoxing = new Animation(asset.getAsset("./goku/left/lightBoxing.png"), 87, 78, 2, 0.1, 2, false, 3.2);
             this.middleBoxing = new Animation(asset.getAsset("./goku/left/heavyBoxing.png"), 80, 89, 2, 0.15, 2, false, 2.9);
-            this.jumpUp = new Animation(asset.getAsset("./goku/left/jumpUp.png"), 40, 91, 3, 0.18, 3, false, 3);
+            this.jumpUp = new Animation(asset.getAsset("./goku/left/jumpUp.png"), 40, 91, 3, 0.15, 3, false, 3);
             this.guard = new Animation(asset.getAsset("./goku/left/guard.png"), 37, 88, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./goku/left/hit.png"), 56, 91, 1, 0.12, 1, true, 2.8);
             this.ki = new Animation(asset.getAsset("./goku/left/ki.png"), 60, 96, 2, 0.12, 2, true, 2.7);
@@ -142,7 +142,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./itachi/right/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
             this.lightBoxing = new Animation(asset.getAsset("./itachi/right/lightBoxing.png"), 67, 64, 2, 0.12, 2, false, 3.5);
             this.middleBoxing = new Animation(asset.getAsset("./itachi/right/heavyBoxing.png"), 64, 61, 4, 0.15, 4, false, 3.5);
-            this.jumpUp = new Animation(asset.getAsset("./itachi/right/jumpUp.png"), 56, 61, 3, 0.18, 3, false, 3.5);
+            this.jumpUp = new Animation(asset.getAsset("./itachi/right/jumpUp.png"), 56, 61, 3, 0.15, 3, false, 3.5);
             this.guard = new Animation(asset.getAsset("./itachi/right/guard.png"), 26, 55, 1, 0.12, 1, true, 4);
             this.hit = new Animation(asset.getAsset("./itachi/right/hit.png"), 40, 57, 1, 0.12, 1, true, 3.8);
             this.ki = new Animation(asset.getAsset("./itachi/right/ki.png"), 50, 63, 1, 0.12, 1, true, 3.6);
@@ -158,7 +158,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./itachi/left/goBack.png"), 36, 29, 3, 0.25, 3, true, 2.5);
             this.lightBoxing = new Animation(asset.getAsset("./itachi/left/lightBoxing.png"), 67, 64, 2, 0.12, 2, false, 3.5);
             this.middleBoxing = new Animation(asset.getAsset("./itachi/left/heavyBoxing.png"), 64, 61, 4, 0.15, 4, false, 3.5);
-            this.jumpUp = new Animation(asset.getAsset("./itachi/left/jumpUp.png"), 56, 61, 3, 0.18, 3, false, 3.5);
+            this.jumpUp = new Animation(asset.getAsset("./itachi/left/jumpUp.png"), 56, 61, 3, 0.15, 3, false, 3.5);
             this.guard = new Animation(asset.getAsset("./itachi/left/guard.png"), 26, 55, 1, 0.12, 1, true, 4);
             this.hit = new Animation(asset.getAsset("./itachi/left/hit.png"), 40, 57, 1, 0.12, 1, true, 3.8);
             this.ki = new Animation(asset.getAsset("./itachi/left/ki.png"), 50, 63, 1, 0.12, 1, true, 3.6);
@@ -185,7 +185,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./pain/right/goBack.png"), 31, 44, 4, 0.25, 4, true, 5.5);
             this.lightBoxing = new Animation(asset.getAsset("./pain/right/lightBoxing.png"), 54, 45, 2, 0.2, 2, false, 5.3);
             this.middleBoxing = new Animation(asset.getAsset("./pain/right/heavyBoxing.png"), 56, 64, 3, 0.2, 3, false, 5.3);
-            this.jumpUp = new Animation(asset.getAsset("./pain/right/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5.3);
+            this.jumpUp = new Animation(asset.getAsset("./pain/right/jumpUp.png"), 28, 46, 3, 0.15, 3, false, 5.3);
             this.guard = new Animation(asset.getAsset("./pain/right/guard.png"), 22, 45, 1, 0.12, 1, true, 5.3);
             this.hit = new Animation(asset.getAsset("./pain/right/hit.png"), 25, 43, 1, 0.12, 1, true, 5.3);
             this.ki = new Animation(asset.getAsset("./pain/right/ki.png"), 29, 45, 1, 0.12, 1, true, 5.3);
@@ -201,7 +201,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./pain/left/goBack.png"), 31, 44, 4, 0.25, 4, true, 5.3);
             this.lightBoxing = new Animation(asset.getAsset("./pain/left/lightBoxing.png"), 54, 45, 2, 0.2, 2, false, 5.3);
             this.middleBoxing = new Animation(asset.getAsset("./pain/left/heavyBoxing.png"), 56, 64, 3, 0.2, 3, false, 5.3);
-            this.jumpUp = new Animation(asset.getAsset("./pain/left/jumpUp.png"), 28, 46, 3, 0.18, 3, false, 5.3);
+            this.jumpUp = new Animation(asset.getAsset("./pain/left/jumpUp.png"), 28, 46, 3, 0.15, 3, false, 5.3);
             this.guard = new Animation(asset.getAsset("./pain/left/guard.png"), 22, 45, 1, 0.12, 1, true, 5.3);
             this.hit = new Animation(asset.getAsset("./pain/left/hit.png"), 25, 43, 1, 0.12, 1, true, 5.3);
             this.ki = new Animation(asset.getAsset("./pain/left/ki.png"), 29, 45, 1, 0.12, 1, true, 5.3);
@@ -227,7 +227,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./piccolo/right/goBack.png"), 136, 150, 1, 0.25, 1, true, 1.4);
             this.lightBoxing = new Animation(asset.getAsset("./piccolo/right/lightBoxing.png"), 151, 114, 2, 0.2, 2, false, 1.7);
             this.middleBoxing = new Animation(asset.getAsset("./piccolo/right/heavyBoxing.png"), 201, 111, 2, 0.2, 2, false, 1.7);
-            this.jumpUp = new Animation(asset.getAsset("./piccolo/right/jumpUp.png"), 88, 154, 2, 0.18, 2, false, 1.7);
+            this.jumpUp = new Animation(asset.getAsset("./piccolo/right/jumpUp.png"), 88, 154, 2, 0.225, 2, false, 1.7);
             this.guard = new Animation(asset.getAsset("./piccolo/right/guard.png"), 90, 115, 1, 0.12, 1, true, 1.7);
             this.hit = new Animation(asset.getAsset("./piccolo/right/hit.png"), 104, 125, 1, 0.12, 1, true, 1.7);
             this.ki = new Animation(asset.getAsset("./piccolo/right/ki.png"), 101, 118, 1, 0.12, 1, true, 1.7);
@@ -243,7 +243,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./piccolo/left/goBack.png"), 136, 150, 1, 0.25, 1, true, 1.4);
             this.lightBoxing = new Animation(asset.getAsset("./piccolo/left/lightBoxing.png"), 151, 114, 2, 0.2, 2, false, 1.7);
             this.middleBoxing = new Animation(asset.getAsset("./piccolo/left/heavyBoxing.png"), 201, 111, 2, 0.2, 2, false, 1.7);
-            this.jumpUp = new Animation(asset.getAsset("./piccolo/left/jumpUp.png"), 88, 154, 2, 0.18, 2, false, 1.7);
+            this.jumpUp = new Animation(asset.getAsset("./piccolo/left/jumpUp.png"), 88, 154, 2, 0.225, 2, false, 1.7);
             this.guard = new Animation(asset.getAsset("./piccolo/left/guard.png"), 90, 115, 1, 0.12, 1, true, 1.7);
             this.hit = new Animation(asset.getAsset("./piccolo/left/hit.png"), 104, 125, 1, 0.12, 1, true, 1.7);
             this.ki = new Animation(asset.getAsset("./piccolo/left/ki.png"), 101, 118, 1, 0.12, 1, true, 1.7);
@@ -269,7 +269,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./ultraman/right/goBack.png"), 26, 42, 2, 0.25, 2, true, 5.4);
             this.lightBoxing = new Animation(asset.getAsset("./ultraman/right/lightBoxing.png"), 41, 43, 2, 0.2, 2, false, 5.4);
             this.middleBoxing = new Animation(asset.getAsset("./ultraman/right/heavyBoxing.png"), 36, 42, 2, 0.2, 2, false, 5.4);
-            this.jumpUp = new Animation(asset.getAsset("./ultraman/right/jumpUp.png"), 24, 31, 1, 0.3, 1, false, 5.4);
+            this.jumpUp = new Animation(asset.getAsset("./ultraman/right/jumpUp.png"), 24, 31, 1, 0.45, 1, false, 5.4);
             this.guard = new Animation(asset.getAsset("./ultraman/right/guard.png"), 35, 44, 1, 0.12, 1, true, 5.4);
             this.hit = new Animation(asset.getAsset("./ultraman/right/hit.png"), 23, 38, 1, 0.12, 1, true, 5.4);
             this.ki = new Animation(asset.getAsset("./ultraman/right/ki.png"), 29, 42, 1, 0.12, 1, true, 5.4);
@@ -285,7 +285,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./ultraman/left/goBack.png"), 26, 42, 2, 0.25, 2, true, 5.4);
             this.lightBoxing = new Animation(asset.getAsset("./ultraman/left/lightBoxing.png"), 41, 43, 2, 0.2, 2, false, 5.4);
             this.middleBoxing = new Animation(asset.getAsset("./ultraman/left/heavyBoxing.png"), 36, 42, 2, 0.2, 2, false, 5.4);
-            this.jumpUp = new Animation(asset.getAsset("./ultraman/left/jumpUp.png"), 24, 31, 1, 0.3, 1, false, 5.4);
+            this.jumpUp = new Animation(asset.getAsset("./ultraman/left/jumpUp.png"), 24, 31, 1, 0.45, 1, false, 5.4);
             this.guard = new Animation(asset.getAsset("./ultraman/left/guard.png"), 35, 44, 1, 0.12, 1, true, 5.4);
             this.hit = new Animation(asset.getAsset("./ultraman/left/hit.png"), 23, 38, 1, 0.12, 1, true, 5.4);
             this.ki = new Animation(asset.getAsset("./ultraman/left/ki.png"), 29, 42, 1, 0.12, 1, true, 5.4);
@@ -311,7 +311,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./nagato/right/goBack.png"), 58, 87, 2, 0.25, 2, true, 2.9);
             this.lightBoxing = new Animation(asset.getAsset("./nagato/right/lightBoxing.png"), 82, 87, 2, 0.15, 2, false, 2.9);
             this.middleBoxing = new Animation(asset.getAsset("./nagato/right/heavyBoxing.png"), 104, 87, 2, 0.2, 2, false, 2.9);
-            this.jumpUp = new Animation(asset.getAsset("./nagato/right/jumpUp.png"), 53, 68, 1, 0.18, 1, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./nagato/right/jumpUp.png"), 53, 68, 1, 0.45, 1, false, 2.9);
             this.guard = new Animation(asset.getAsset("./nagato/right/guard.png"), 31, 87, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./nagato/right/hit.png"), 37, 87, 1, 0.12, 1, true, 2.9);
             this.ki = new Animation(asset.getAsset("./nagato/right/ki.png"), 32, 87, 1, 0.12, 1, true, 2.9);
@@ -327,7 +327,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./nagato/left/goBack.png"), 58, 87, 2, 0.25, 2, true, 2.9);
             this.lightBoxing = new Animation(asset.getAsset("./nagato/left/lightBoxing.png"), 82, 87, 2, 0.15, 2, false, 2.9);
             this.middleBoxing = new Animation(asset.getAsset("./nagato/left/heavyBoxing.png"), 104, 87, 2, 0.2, 2, false, 2.9);
-            this.jumpUp = new Animation(asset.getAsset("./nagato/left/jumpUp.png"), 53, 68, 1, 0.18, 1, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./nagato/left/jumpUp.png"), 53, 68, 1, 0.45, 1, false, 2.9);
             this.guard = new Animation(asset.getAsset("./nagato/left/guard.png"), 31, 87, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./nagato/left/hit.png"), 37, 87, 1, 0.12, 1, true, 2.9);
             this.ki = new Animation(asset.getAsset("./nagato/left/ki.png"), 32, 87, 1, 0.12, 1, true, 2.9);
@@ -353,7 +353,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./danzo/right/goBack.png"), 53, 82, 2, 0.25, 2, true, 2.9);
             this.lightBoxing = new Animation(asset.getAsset("./danzo/right/lightBoxing.png"), 69, 82, 2, 0.15, 2, false, 2.9);
             this.middleBoxing = new Animation(asset.getAsset("./danzo/right/heavyBoxing.png"), 117, 82, 2, 0.25, 2, false, 2.9);
-            this.jumpUp = new Animation(asset.getAsset("./danzo/right/jumpUp.png"), 43, 75, 1, 0.18, 1, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./danzo/right/jumpUp.png"), 43, 75, 1, 0.45, 1, false, 2.9);
             this.guard = new Animation(asset.getAsset("./danzo/right/guard.png"), 38, 82, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./danzo/right/hit.png"), 55, 82, 1, 0.12, 1, true, 2.9);
             this.ki = new Animation(asset.getAsset("./danzo/right/ki.png"), 45, 82, 1, 0.12, 1, true, 2.9);
@@ -369,7 +369,7 @@ function Character(game, asset, playerNumber, characterNumber) {
             this.goBack = new Animation(asset.getAsset("./danzo/left/goBack.png"), 53, 82, 2, 0.25, 2, true, 2.9);
             this.lightBoxing = new Animation(asset.getAsset("./danzo/left/lightBoxing.png"), 69, 82, 2, 0.15, 2, false, 2.9);
             this.middleBoxing = new Animation(asset.getAsset("./danzo/left/heavyBoxing.png"), 117, 82, 2, 0.25, 2, false, 2.9);
-            this.jumpUp = new Animation(asset.getAsset("./danzo/left/jumpUp.png"), 43, 75, 1, 0.18, 1, false, 2.9);
+            this.jumpUp = new Animation(asset.getAsset("./danzo/left/jumpUp.png"), 43, 75, 1, 0.45, 1, false, 2.9);
             this.guard = new Animation(asset.getAsset("./danzo/left/guard.png"), 38, 82, 1, 0.12, 1, true, 2.9);
             this.hit = new Animation(asset.getAsset("./danzo/left/hit.png"), 55, 82, 1, 0.12, 1, true, 2.9);
             this.ki = new Animation(asset.getAsset("./danzo/left/ki.png"), 45, 82, 1, 0.12, 1, true, 2.9);
@@ -862,44 +862,53 @@ Character.prototype.update = function () {
         if (this.lightB || this.middleB) {
             if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeL
                 && Math.abs(this.y - this.opponent.y) < 150 && this.lightB) {
-                if (this.opponent.g) {
-                    this.opponent.healthPoint -= this.lightAttack / this.guardScale;
-                    if (this.opponent.hitSound.currentTime < 0.2) {
-                        this.opponent.hitSound.play();
-                    }
-                    if (this.power < 300) {
-                        this.power += 0.5 / this.guardScale;
-                    }
+                if (this.opponent.characterNumber == 4 && this.opponent.sup) {
+
                 } else {
-                    this.opponent.healthPoint -= this.lightAttack;
-                    if (this.opponent.hitSound.currentTime < 0.2) {
-                        this.opponent.hitSound.play();
+                    if (this.opponent.g) {
+                        this.opponent.healthPoint -= this.lightAttack / this.guardScale;
+                        if (this.opponent.hitSound.currentTime < 0.2) {
+                            this.opponent.hitSound.play();
+                        }
+                        if (this.power < 300) {
+                            this.power += 0.5 / this.guardScale;
+                        }
+                    } else {
+                        this.opponent.healthPoint -= this.lightAttack;
+                        if (this.opponent.hitSound.currentTime < 0.2) {
+                            this.opponent.hitSound.play();
+                        }
+                        if (this.power < 300) {
+                            this.power += 0.5;
+                        }
+                        this.opponent.h = true;
                     }
-                    if (this.power < 300) {
-                        this.power += 0.5;
-                    }
-                    this.opponent.h = true;
                 }
+
             }
             if (Math.abs(this.x - this.opponent.x) < this.width + this.opponent.width + this.attackRangeM
                 && Math.abs(this.y - this.opponent.y) < 150 && this.middleB) {
-                if (this.opponent.g) {
-                    this.opponent.healthPoint -= this.middleAttack / this.guardScale;
-                    if (this.opponent.hitSound.currentTime < 0.2) {
-                        this.opponent.hitSound.play();
-                    }
-                    if (this.power < 300) {
-                        this.power += 1 / this.guardScale;
-                    }
+                if (this.opponent.characterNumber == 4 && this.opponent.sup) {
+
                 } else {
-                    this.opponent.healthPoint -= this.middleAttack;
-                    if (this.opponent.hitSound.currentTime < 0.2) {
-                        this.opponent.hitSound.play();
+                    if (this.opponent.g) {
+                        this.opponent.healthPoint -= this.middleAttack / this.guardScale;
+                        if (this.opponent.hitSound.currentTime < 0.2) {
+                            this.opponent.hitSound.play();
+                        }
+                        if (this.power < 300) {
+                            this.power += 1 / this.guardScale;
+                        }
+                    } else {
+                        this.opponent.healthPoint -= this.middleAttack;
+                        if (this.opponent.hitSound.currentTime < 0.2) {
+                            this.opponent.hitSound.play();
+                        }
+                        if (this.power < 300) {
+                            this.power += 1;
+                        }
+                        this.opponent.h = true;
                     }
-                    if (this.power < 300) {
-                        this.power += 1;
-                    }
-                    this.opponent.h = true;
                 }
             }
 
