@@ -47,3 +47,4 @@ Yunhang Jiang, Chenwei Qiu Version 20170302
         5. Piccolo: Slow Speed, Medium damage, Large Range
         6. Ultraman: Fast Speed, Low damage, Large Range
         7. Nagato: Media Speed, Hight damage, Large Range
+        8. Danzo: High Speed, Medium damage, Auto track target
